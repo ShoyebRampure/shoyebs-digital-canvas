@@ -3,7 +3,7 @@ import { Linkedin, Github } from "lucide-react";
 
 // Placeholder image from Unsplash (tech theme)
 const PROFILE_IMAGE =
-  "public/profile.jpg";
+  "profile.jpg";
 
 export function HeroSection() {
   return (
