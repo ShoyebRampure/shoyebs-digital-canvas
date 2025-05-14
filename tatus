@@ -1,0 +1,77 @@
+[33mcommit 1ee5785c784255b1770a745330e5027d58afa729[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: ShoyebRampure <shoyebrampure@gmail.com>
+Date:   Wed May 14 17:29:53 2025 +0530
+
+    x
+
+[33mcommit ef7f913f12f0951545af60019d016e9e3560d8c5[m
+Author: ShoyebRampure <shoyebrampure@gmail.com>
+Date:   Wed May 14 17:28:40 2025 +0530
+
+    Prepare for GitHub Pages deployment
+
+[33mcommit e783caa38fa1dae37e5450a91c9f5de9d14d185d[m
+Author: ShoyebRampure <shoyebrampure@gmail.com>
+Date:   Wed May 14 17:16:47 2025 +0530
+
+    Refactor code structure for improved readability and maintainability
+
+[33mcommit cccb2621dd398fa0b22caaaea863e799d22eeffb[m
+Author: ShoyebRampure <shoyebrampure@gmail.com>
+Date:   Wed May 14 17:15:01 2025 +0530
+
+    fix: Update WhatsApp number in contact form
+
+[33mcommit 358a66141d8e8964fffa17c3df8bcc489acfb03e[m
+Author: gpt-engineer-app[bot] <159125892+gpt-engineer-app[bot]@users.noreply.github.com>
+Date:   Wed May 14 11:15:44 2025 +0000
+
+    feat: Redirect to WhatsApp on contact form submission
+    
+    Adds functionality to redirect to WhatsApp after submitting the contact form, pre-filling the message with the entered details and sending it to the specified number (8095523567) via a WhatsApp API.
+
+[33mcommit 29630647ca47b0eedaf22aac2886a357f29da7ec[m
+Author: gpt-engineer-app[bot] <159125892+gpt-engineer-app[bot]@users.noreply.github.com>
+Date:   Wed May 14 11:12:33 2025 +0000
+
+    Refactor: Update portfolio with resume data
+    
+    Update the portfolio website to reflect the information provided in the user's resume, including the home, about, internship, projects, skills, achievements, certifications, resume download, and contact sections. Ensure the website is clean, tech-themed, professional, bold, elegant, and responsive. Add a sample image to the home section.
+
+[33mcommit 727aed3d7d2bf87fd414c8e8e71d24f373f4bc35[m
+Author: gpt-engineer-app[bot] <159125892+gpt-engineer-app[bot]@users.noreply.github.com>
+Date:   Wed May 14 11:06:53 2025 +0000
+
+    Fix: SidebarProvider context error
+    
+    The error "useSidebar must be used within a SidebarProvider" indicates that the `useSidebar` hook is being called outside of the `SidebarProvider`. The fix involves wrapping the components that use `useSidebar` (specifically, the `Index` component) with the `SidebarProvider` in `App.tsx`. This ensures that the necessary context is available.
+
+[33mcommit 991c1966935b65778ba61bdf050d208b4e035cb0[m
+Author: gpt-engineer-app[bot] <159125892+gpt-engineer-app[bot]@users.noreply.github.com>
+Date:   Wed May 14 11:05:11 2025 +0000
+
+    Fix: Tailwind class not found
+    
+    Fixes an issue where the `text-foreground` class was not recognized by Tailwind CSS by ensuring proper configuration within the `index.css` file.
+
+[33mcommit c15b4acfaefd079f4bd76f9d46d9f572de0e35b8[m
+Author: gpt-engineer-app[bot] <159125892+gpt-engineer-app[bot]@users.noreply.github.com>
+Date:   Wed May 14 11:03:57 2025 +0000
+
+    Fix: Tailwind CSS class not found
+    
+    The error message indicates that the `text-foreground` class is not being recognized by Tailwind CSS. This is likely because the class is not defined correctly or is missing from the configuration. The fix involves ensuring that the necessary Tailwind directives are correctly imported and that the color variables are properly defined.
+
+[33mcommit c393d36875124516ed3173fb29e2c69a3d49b26d[m
+Author: gpt-engineer-app[bot] <159125892+gpt-engineer-app[bot]@users.noreply.github.com>
+Date:   Wed May 14 11:03:03 2025 +0000
+
+    Create portfolio website
+    
+    Implement a portfolio website based on the user's resume information, including sections for home, about me, projects, skills, achievements, certifications, resume download, and contact. The website should have a modern, professional, and tech-themed design with responsive layout, smooth transitions, and interactive hover effects.
+
+[33mcommit abfa91f47adf84b52821c6206f40af5fd0c7e1b2[m
+Author: gpt-engineer-app[bot] <159125892+gpt-engineer-app[bot]@users.noreply.github.com>
+Date:   Wed May 14 11:01:31 2025 +0000
+
+    Use tech stack vite_react_shadcn_ts
