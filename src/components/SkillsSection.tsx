@@ -1,4 +1,5 @@
 
+
 export function SkillsSection() {
   return (
     <section
@@ -8,31 +9,34 @@ export function SkillsSection() {
       <h2 className="text-2xl font-bold text-primary mb-5">Skills</h2>
       <div className="grid md:grid-cols-3 gap-5 text-base">
         <div>
-          <div className="font-semibold text-accent mb-2">Programming Languages</div>
+          <div className="font-semibold text-accent mb-2">Languages</div>
           <ul className="space-y-1">
             <li>Java</li>
             <li>C</li>
             <li>Python</li>
-            <li>HTML, CSS, JavaScript</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
             <li>SQL</li>
           </ul>
         </div>
         <div>
-          <div className="font-semibold text-accent mb-2">Domains</div>
+          <div className="font-semibold text-accent mb-2">Technical Areas</div>
           <ul className="space-y-1">
-            <li>AI/ML</li>
+            <li>AI</li>
+            <li>ML</li>
             <li>RPA</li>
+            <li>Web Dev</li>
             <li>IoT</li>
-            <li>Web Development</li>
           </ul>
         </div>
         <div>
           <div className="font-semibold text-accent mb-2">Core Courses</div>
           <ul className="space-y-1">
-            <li>Data Structures & Algorithms (DSA)</li>
-            <li>Object Oriented Programming (OOPS)</li>
-            <li>Operating Systems (OS)</li>
-            <li>Database Management Systems (DBMS)</li>
+            <li>DSA</li>
+            <li>DBMS</li>
+            <li>OOPS</li>
+            <li>OS</li>
           </ul>
         </div>
       </div>

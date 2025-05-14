@@ -2,6 +2,7 @@
 import SidebarNav from "@/components/Sidebar";
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
+import { InternshipSection } from "@/components/InternshipSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { SkillsSection } from "@/components/SkillsSection";
 import { AchievementsSection } from "@/components/AchievementsSection";
@@ -23,6 +24,7 @@ const Index = () => {
           <div className="max-w-5xl mx-auto">
             <HeroSection />
             <AboutSection />
+            <InternshipSection />
             <ProjectsSection />
             <SkillsSection />
             <AchievementsSection />
@@ -38,4 +40,3 @@ const Index = () => {
 };
 
 export default Index;
-

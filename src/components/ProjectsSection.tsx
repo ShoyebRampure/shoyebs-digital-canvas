@@ -1,28 +1,40 @@
 
-export function ProjectsSection() {
-  const projects = [
-    {
-      title: "DOT – AI-Powered Braille Learning Device",
-      desc: "An innovative device leveraging AI to assist visually impaired individuals in learning Braille efficiently with real-time feedback.",
-    },
-    {
-      title: "Smart Helmet",
-      desc: "Designed a helmet with IoT sensors for accident detection and notifications, enhancing biker safety through smart technology.",
-    },
-    {
-      title: "Healthcare Chatbot",
-      desc: "Developed an intelligent chatbot using machine learning to provide medical information and answer healthcare queries to users 24/7.",
-    },
-    {
-      title: "Smart Calorie Detection",
-      desc: "Created a computer vision-based application for automatically detecting and evaluating calorie content from meal images.",
-    },
-    {
-      title: "RPA Automation (Word to PDF Email System)",
-      desc: "Built an automated RPA system that converts Word documents to PDFs and emails them efficiently, reducing manual workload.",
-    },
-  ];
 
+interface Project {
+  title: string;
+  tech: string;
+  desc: string;
+}
+
+const projects: Project[] = [
+  {
+    title: "DOT – The AI Powered Braille",
+    tech: "JavaScript, HTML, CSS, Lama AI, Arduino, MySQL",
+    desc: "Web + hardware tool for real-time Braille learning",
+  },
+  {
+    title: "Smart Helmet",
+    tech: "GPS, Gyroscope, IoT, Bluetooth",
+    desc: "Safety system with accident detection, GPS, audio comms",
+  },
+  {
+    title: "Healthcare Chatbot",
+    tech: "Python, ML, Flask, NLP",
+    desc: "AI chatbot for disease prediction and suggestions",
+  },
+  {
+    title: "Smart Calorie Detection System",
+    tech: "IoT, Python, Load Sensor",
+    desc: "Food weight-to-calorie calculation system",
+  },
+  {
+    title: "RPA Automation System",
+    tech: "Python, UiPath",
+    desc: "Converts Word to PDF & emails automatically",
+  },
+];
+
+export function ProjectsSection() {
   return (
     <section
       id="projects"
@@ -33,9 +45,10 @@ export function ProjectsSection() {
         {projects.map((proj) => (
           <div
             key={proj.title}
-            className="bg-card/80 p-6 rounded-xl shadow-glass hover:scale-105 transform transition-all duration-200 border border-border"
+            className="bg-card/90 p-6 rounded-xl shadow-glass hover:scale-105 transform transition-all duration-200 border border-border"
           >
             <div className="text-lg font-semibold text-accent mb-2">{proj.title}</div>
+            <div className="text-sm font-medium mb-2 text-primary">{proj.tech}</div>
             <div className="text-base text-gray-200">{proj.desc}</div>
           </div>
         ))}

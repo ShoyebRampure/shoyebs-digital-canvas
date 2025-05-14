@@ -7,7 +7,6 @@ export function ContactSection() {
   const formRef = useRef<HTMLFormElement>(null);
   const [submitting, setSubmitting] = useState(false);
 
-  // This is a stubbed handler (no backend/email service integration)
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitting(true);
@@ -28,7 +27,10 @@ export function ContactSection() {
     >
       <h2 className="text-2xl font-bold text-primary mb-3">Contact</h2>
       <div className="mb-6 text-base text-muted">
-        Email: <a href="mailto:shoyebrampure@gmail.com" className="text-accent underline">shoyebrampure@gmail.com</a>
+        Email:{" "}
+        <a href="mailto:shoyebrampure@gmail.com" className="text-accent underline">
+          shoyebrampure@gmail.com
+        </a>
       </div>
       <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
         <input

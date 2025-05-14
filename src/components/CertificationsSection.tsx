@@ -1,11 +1,12 @@
 
+
 export function CertificationsSection() {
   const certs = [
-    "AWS Cloud Practitioner",
-    "AI/ML Specialization",
-    "UiPath RPA Developer",
+    "AWS Foundation",
+    "AI & ML Basics",
+    "UiPath RPA (multiple modules)",
     "Python for Data Science",
-    "MongoDB Basics",
+    "MongoDB for Students",
   ];
   return (
     <section
