@@ -1,4 +1,3 @@
-
 import { useRef, useState } from "react";
 import { Send } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
@@ -16,7 +15,7 @@ export function ContactSection() {
     const email = (form.elements.namedItem("email") as HTMLInputElement)?.value;
     const message = (form.elements.namedItem("message") as HTMLInputElement)?.value;
 
-    const whatsappNumber = "8095523567";
+    const whatsappNumber = "918095523567"; // Updated WhatsApp number
     // Compose the WhatsApp message
     const whatsappMessage = `Hello, I'm ${name}.\nEmail: ${email}\nMessage: ${message}`;
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
