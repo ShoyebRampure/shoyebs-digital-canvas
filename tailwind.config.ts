@@ -30,11 +30,16 @@ export default {
           DEFAULT: "#1EAEDB",
           light: "#7CDFF6",
         },
-        background: "#1A1F2C",
-        card: "#23263A",
-        section: "#F1F0FB",
-        muted: "#8E9196",
-        border: "#aaadb0"
+        background: { DEFAULT: "#1A1F2C" }, // Explicit DEFAULT
+        card: { DEFAULT: "#23263A" },      // Explicit DEFAULT
+        section: { DEFAULT: "#F1F0FB" },   // Explicit DEFAULT
+        muted: { DEFAULT: "#8E9196" },
+        border: { DEFAULT: "#aaadb0" },
+        // ------- THIS IS KEY -------
+        foreground: {
+          DEFAULT: "hsl(var(--foreground))",
+        },
+        // Add any other color variable overrides below
       },
       boxShadow: {
         glass: "0 8px 32px 0 rgba(31, 38, 135, 0.2)",
@@ -60,3 +65,4 @@ export default {
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+
