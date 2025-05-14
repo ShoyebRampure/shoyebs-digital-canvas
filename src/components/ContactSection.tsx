@@ -10,13 +10,27 @@ export function ContactSection() {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitting(true);
+
+    const form = e.currentTarget;
+    const name = (form.elements.namedItem("name") as HTMLInputElement)?.value;
+    const email = (form.elements.namedItem("email") as HTMLInputElement)?.value;
+    const message = (form.elements.namedItem("message") as HTMLInputElement)?.value;
+
+    const whatsappNumber = "8095523567";
+    // Compose the WhatsApp message
+    const whatsappMessage = `Hello, I'm ${name}.\nEmail: ${email}\nMessage: ${message}`;
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
     setTimeout(() => {
       setSubmitting(false);
       formRef.current?.reset();
+      // Show the toast as feedback
       toast({
-        title: "Message sent!",
-        description: "Thank you for reaching out. Shoyeb will reply soon.",
+        title: "Redirecting to WhatsApp...",
+        description: "You will be redirected to WhatsApp to complete your enquiry.",
       });
+      // Redirect to WhatsApp
+      window.location.href = whatsappURL;
     }, 900);
   }
 
@@ -59,7 +73,7 @@ export function ContactSection() {
           disabled={submitting}
         >
           <Send size={18} />
-          {submitting ? "Sending..." : "Send Message"}
+          {submitting ? "Sending..." : "Send Enquiry"}
         </button>
       </form>
     </section>
