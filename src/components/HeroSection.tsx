@@ -58,11 +58,20 @@ export function HeroSection() {
             box-shadow: 0 0 20px #FFD70088;
           }
 
-          .parchment {
-            color: #fdf6e3;
+          .hero-glow-box {
+            background: rgba(255, 253, 208, 0.05);
+            backdrop-filter: blur(6px);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.08);
+            transition: all 0.3s ease-in-out;
           }
 
-          /* Magic sparkles */
+          .hero-glow-box:hover {
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+          }
+
           .magic-sparkle {
             position: absolute;
             width: 6px;
@@ -74,28 +83,19 @@ export function HeroSection() {
           }
 
           @keyframes float {
-            0% {
-              transform: translateY(0) scale(1);
-              opacity: 0.6;
-            }
-            50% {
-              transform: translateY(-60px) scale(1.2);
-              opacity: 1;
-            }
-            100% {
-              transform: translateY(0) scale(1);
-              opacity: 0.6;
-            }
+            0% { transform: translateY(0) scale(1); opacity: 0.6; }
+            50% { transform: translateY(-60px) scale(1.2); opacity: 1; }
+            100% { transform: translateY(0) scale(1); opacity: 0.6; }
           }
         `}
       </style>
 
       <section
         id="home"
-        className="relative flex flex-col items-center justify-center min-h-[80vh] py-20 bg-hero text-white font-harry animate-fade-in"
+        className="relative flex flex-col items-center justify-center min-h-[90vh] py-20 bg-hero text-white font-harry animate-fade-in"
       >
         {/* Magical floating particles */}
-        {[...Array(15)].map((_, i) => (
+        {[...Array(20)].map((_, i) => (
           <span
             key={i}
             className="magic-sparkle"
@@ -107,7 +107,7 @@ export function HeroSection() {
           />
         ))}
 
-        <div className="w-full max-w-2xl text-center z-10">
+        <div className="hero-glow-box z-10 text-center">
           <div className="flex justify-center mb-6">
             <img
               src={PROFILE_IMAGE}
