@@ -1,5 +1,3 @@
-
-
 interface Project {
   title: string;
   tech: string;
@@ -36,23 +34,80 @@ const projects: Project[] = [
 
 export function ProjectsSection() {
   return (
-    <section
-      id="projects"
-      className="w-full max-w-5xl mx-auto mt-10 animate-fade-in"
-    >
-      <h2 className="text-2xl font-bold text-primary mb-6">Projects</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {projects.map((proj) => (
-          <div
-            key={proj.title}
-            className="bg-card/90 p-6 rounded-xl shadow-glass hover:scale-105 transform transition-all duration-200 border border-border"
-          >
-            <div className="text-lg font-semibold text-accent mb-2">{proj.title}</div>
-            <div className="text-sm font-medium mb-2 text-primary">{proj.tech}</div>
-            <div className="text-base text-gray-200">{proj.desc}</div>
-          </div>
-        ))}
-      </div>
-    </section>
+    <>
+      <style>
+        {`
+          @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+
+          @font-face {
+            font-family: 'HarryP';
+            src: url('https://cdn.jsdelivr.net/gh/Geeksltd/HP-Fonts/HarryPotter.ttf') format('truetype');
+          }
+
+          .font-harry {
+            font-family: 'HarryP', 'IM Fell English SC', serif;
+          }
+
+          .text-gold {
+            color: #FFD700;
+          }
+
+          .bg-scroll {
+            background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+          }
+
+          .shadow-wizard {
+            box-shadow: 0 0 20px 3px rgba(255, 215, 0, 0.2);
+          }
+
+          .project-card {
+            background: rgba(38, 38, 38, 0.95);
+            border: 1px solid #FFD70066;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+          }
+
+          .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 12px #FFD700aa;
+          }
+
+          .project-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #FFD700;
+          }
+
+          .project-tech {
+            font-size: 0.9rem;
+            color: #c5b992;
+            font-weight: 500;
+          }
+
+          .project-desc {
+            color: #e6e6e6;
+            margin-top: 0.5rem;
+            font-size: 1rem;
+          }
+        `}
+      </style>
+
+      <section
+        id="projects"
+        className="w-full max-w-5xl mx-auto mt-10 px-4 animate-fade-in"
+      >
+        <h2 className="text-3xl font-harry text-gold mb-8 text-center">🔮 Wizardry Projects</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {projects.map((proj) => (
+            <div key={proj.title} className="project-card shadow-wizard">
+              <div className="project-title">{proj.title}</div>
+              <div className="project-tech">{proj.tech}</div>
+              <div className="project-desc">{proj.desc}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }

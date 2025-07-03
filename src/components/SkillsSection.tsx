@@ -1,45 +1,92 @@
-
-
 export function SkillsSection() {
   return (
-    <section
-      id="skills"
-      className="w-full max-w-4xl mx-auto mt-10 p-8 rounded-2xl bg-card shadow-glass animate-fade-in"
-    >
-      <h2 className="text-2xl font-bold text-primary mb-5">Skills</h2>
-      <div className="grid md:grid-cols-3 gap-5 text-base">
-        <div>
-          <div className="font-semibold text-accent mb-2">Languages</div>
-          <ul className="space-y-1">
-            <li>Java</li>
-            <li>C</li>
-            <li>Python</li>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>SQL</li>
-          </ul>
+    <>
+      <style>
+        {`
+          @font-face {
+            font-family: 'HarryP';
+            src: url('https://cdn.jsdelivr.net/gh/Geeksltd/HP-Fonts/HarryPotter.ttf') format('truetype');
+          }
+
+          .font-harry {
+            font-family: 'HarryP', serif;
+          }
+
+          .bg-parchment {
+            background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+          }
+
+          .text-gold {
+            color: #FFD700;
+          }
+
+          .skill-category {
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 6px #FFD70066;
+          }
+
+          .skill-item {
+            color: #e6e6e6;
+            padding-left: 1rem;
+            position: relative;
+          }
+
+          .skill-item::before {
+            content: "🪄";
+            position: absolute;
+            left: 0;
+          }
+
+          .section-container {
+            box-shadow: 0 0 20px #FFD70022;
+            border: 1px solid #FFD70033;
+            border-radius: 1.5rem;
+          }
+        `}
+      </style>
+
+      <section
+        id="skills"
+        className="w-full max-w-4xl mx-auto mt-10 p-8 bg-parchment section-container animate-fade-in"
+      >
+        <h2 className="text-3xl font-harry text-gold mb-6 text-center">📚 Spellbook of Skills</h2>
+        <div className="grid md:grid-cols-3 gap-8 text-base">
+          <div>
+            <div className="skill-category">Languages</div>
+            <ul className="space-y-2">
+              <li className="skill-item">Java</li>
+              <li className="skill-item">C</li>
+              <li className="skill-item">Python</li>
+              <li className="skill-item">HTML</li>
+              <li className="skill-item">CSS</li>
+              <li className="skill-item">JavaScript</li>
+              <li className="skill-item">SQL</li>
+            </ul>
+          </div>
+          <div>
+            <div className="skill-category">Technical Areas</div>
+            <ul className="space-y-2">
+              <li className="skill-item">AI</li>
+              <li className="skill-item">ML</li>
+              <li className="skill-item">RPA</li>
+              <li className="skill-item">Web Dev</li>
+              <li className="skill-item">IoT</li>
+            </ul>
+          </div>
+          <div>
+            <div className="skill-category">Core Courses</div>
+            <ul className="space-y-2">
+              <li className="skill-item">DSA</li>
+              <li className="skill-item">DBMS</li>
+              <li className="skill-item">OOPS</li>
+              <li className="skill-item">OS</li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <div className="font-semibold text-accent mb-2">Technical Areas</div>
-          <ul className="space-y-1">
-            <li>AI</li>
-            <li>ML</li>
-            <li>RPA</li>
-            <li>Web Dev</li>
-            <li>IoT</li>
-          </ul>
-        </div>
-        <div>
-          <div className="font-semibold text-accent mb-2">Core Courses</div>
-          <ul className="space-y-1">
-            <li>DSA</li>
-            <li>DBMS</li>
-            <li>OOPS</li>
-            <li>OS</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

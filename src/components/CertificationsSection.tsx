@@ -79,7 +79,7 @@ export const CertificationsSection: React.FC = () => {
         id="certifications"
         className="w-full max-w-4xl mx-auto mt-12 p-8 rounded-3xl bg-hogwarts shadow-magical border-gold animate-fade-in"
       >
-        <h2 className="text-3xl font-harry text-gold mb-6 text-center">📜 Magical Certifications 📜</h2>
+        <h2 className="text-3xl font-harry text-gold mb-6 text-center">📜  Certifications 📜</h2>
         <div className="flex flex-wrap justify-center gap-4">
           {certs.map((cert) => (
             <span key={cert} className="cert-tag">{cert}</span>

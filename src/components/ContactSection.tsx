@@ -92,9 +92,10 @@ export function ContactSection() {
             top: 100%;
             left: -60px;
             width: 60px;
-            height: 60px;
+            height: auto;
             animation: fly-across 3s ease-in-out forwards;
             z-index: 50;
+            pointer-events: none;
           }
 
           @keyframes fly-across {
@@ -103,7 +104,6 @@ export function ContactSection() {
             50% { transform: translate(50vw, -150px) rotate(15deg); }
             100% { transform: translate(100vw, -200px) rotate(30deg); opacity: 0; }
           }
-
         `}
       </style>
 
@@ -129,7 +129,7 @@ export function ContactSection() {
           <input
             type="email"
             name="email"
-            placeholder="Message Wizard"
+            placeholder="Your email"
             className="w-full px-4 py-2 rounded form-input"
             required
           />
@@ -145,13 +145,13 @@ export function ContactSection() {
             className="w-full flex items-center justify-center gap-2 btn-magical font-semibold px-4 py-2 rounded-lg"
           >
             <Send size={18} />
-            {submitting ? "Sending via Owl..." : "Send Enquiry"}
+            {submitting ? "Sending via Hedwig..." : "Send Enquiry"}
           </button>
         </form>
 
         {showHedwig && (
           <img
-            src="https://i.ibb.co/ZxKW06Y/hedwig.png"
+            src="https://i.ibb.co/YBQmT79/hedwig-white.png"
             alt="Hedwig flying"
             className="hedwig"
           />
