@@ -64,7 +64,7 @@ export const AboutSection: React.FC = () => {
           </div>
           <div>
             <span className="font-medium">
-              🏰 B.N.M Institute of Technology | CGPA: 8.41 (2022–2026)
+              🏰 B.N.M Institute of Technology | CGPA: 8.55 (2022–2026)
             </span>
           </div>
           <div>
