@@ -1,6 +1,5 @@
 import { Linkedin, Github } from "lucide-react";
 
-// Replace with your Hogwarts-style profile picture
 const PROFILE_IMAGE = "profile.jpg";
 
 export function HeroSection() {
@@ -24,7 +23,9 @@ export function HeroSection() {
           }
 
           .bg-hero {
-            background: radial-gradient(circle, #1a1a1a, #000000);
+            background: radial-gradient(ellipse at center, #1c1c1c 0%, #000000 100%);
+            position: relative;
+            overflow: hidden;
           }
 
           .btn-hogwarts {
@@ -53,21 +54,60 @@ export function HeroSection() {
             box-shadow: 0 0 10px #0ec979aa;
           }
 
+          .shadow-wand {
+            box-shadow: 0 0 20px #FFD70088;
+          }
+
           .parchment {
             color: #fdf6e3;
           }
 
-          .shadow-wand {
-            box-shadow: 0 0 20px #FFD70066;
+          /* Magic sparkles */
+          .magic-sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #FFD700;
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+            opacity: 0.7;
+          }
+
+          @keyframes float {
+            0% {
+              transform: translateY(0) scale(1);
+              opacity: 0.6;
+            }
+            50% {
+              transform: translateY(-60px) scale(1.2);
+              opacity: 1;
+            }
+            100% {
+              transform: translateY(0) scale(1);
+              opacity: 0.6;
+            }
           }
         `}
       </style>
 
       <section
         id="home"
-        className="relative flex flex-col items-center justify-center min-h-[70vh] py-20 bg-hero text-white font-harry animate-fade-in"
+        className="relative flex flex-col items-center justify-center min-h-[80vh] py-20 bg-hero text-white font-harry animate-fade-in"
       >
-        <div className="w-full max-w-2xl text-center">
+        {/* Magical floating particles */}
+        {[...Array(15)].map((_, i) => (
+          <span
+            key={i}
+            className="magic-sparkle"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 6}s`,
+            }}
+          />
+        ))}
+
+        <div className="w-full max-w-2xl text-center z-10">
           <div className="flex justify-center mb-6">
             <img
               src={PROFILE_IMAGE}
