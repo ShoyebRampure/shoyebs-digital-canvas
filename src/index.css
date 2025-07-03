@@ -1,15 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @layer base {
   :root {
-    --background: 45 15% 92%; /* parchment */
-    --foreground: 32 100% 10%; /* dark brown ink */
+    /* Base UI Colors - Parchment Theme */
+    --background: 45 15% 92%;
+    --foreground: 32 100% 10%;
 
-    --card: 42 34% 85%; /* aged scroll paper */
+    --card: 42 34% 85%;
     --card-foreground: 32 100% 10%;
 
     --popover: 43 20% 90%;
     --popover-foreground: 32 100% 10%;
 
-    --primary: 45 85% 40%; /* golden spell */
+    --primary: 45 85% 40%; /* Golden spell */
     --primary-foreground: 32 100% 5%;
 
     --secondary: 32 20% 85%;
@@ -30,6 +35,7 @@
 
     --radius: 0.75rem;
 
+    /* Sidebar colors */
     --sidebar-background: 32 20% 20%;
     --sidebar-foreground: 45 85% 90%;
     --sidebar-primary: 45 85% 40%;
@@ -45,7 +51,7 @@
     --ravenclaw: 222 45% 42%;
     --hufflepuff: 45 95% 55%;
 
-    /* Additional UI Tokens */
+    /* Additional Tokens */
     --badge: 45 70% 65%;
     --badge-foreground: 0 0% 15%;
 
@@ -121,12 +127,15 @@
     --glass-blur: blur(8px);
   }
 
+  /* Global styling */
   * {
     @apply border-border;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* Scrollbar Styling */
@@ -154,14 +163,36 @@
     padding: 0.2rem 0.4rem;
     border-radius: 0.375rem;
     font-family: 'Fira Code', monospace;
+    font-size: 0.875rem;
   }
 
   a {
     color: hsl(var(--link));
     text-decoration: underline;
+    font-weight: 500;
+    transition: all 0.3s ease;
   }
 
   a:hover {
     color: hsl(var(--link-hover));
+    text-decoration-color: hsl(var(--highlight));
+  }
+
+  h1, h2, h3 {
+    font-family: 'IM Fell English SC', serif;
+    letter-spacing: 0.5px;
+  }
+
+  button {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+
+  .shadow-hogwarts {
+    box-shadow: 0 0 10px hsl(var(--primary) / 0.6);
+  }
+
+  .glow-effect {
+    text-shadow: 0 0 8px hsl(var(--highlight));
   }
 }
