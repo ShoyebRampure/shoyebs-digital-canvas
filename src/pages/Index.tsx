@@ -1,7 +1,7 @@
 import SidebarNav from "@/components/Sidebar";
-import { HeroSection } from "@/components/HeroSection";
+import {HeroSection} from "@/components/HeroSection"; // default export ✅
+import InternshipSection from "@/components/InternshipSection"; // default export ✅
 import { AboutSection } from "@/components/AboutSection";
-import { InternshipSection } from "@/components/InternshipSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { SkillsSection } from "@/components/SkillsSection";
 import { AchievementsSection } from "@/components/AchievementsSection";
@@ -9,6 +9,7 @@ import { CertificationsSection } from "@/components/CertificationsSection";
 import { ResumeDownload } from "@/components/ResumeDownload";
 import { ContactSection } from "@/components/ContactSection";
 import { SidebarProvider } from "@/components/ui/sidebar";
+
 
 const Index = () => {
   return (
