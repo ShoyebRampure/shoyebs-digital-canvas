@@ -1,7 +1,7 @@
 import { Linkedin, Github } from "lucide-react";
 import { useState, useEffect } from "react";
 
-const PROFILE_IMAGE = "C:\SAIFULLAH\shoyebs-digital-canvas\public\profile.jpg";
+const PROFILE_IMAGE = "profile.jpg";
 
 // Change from default export to named export
 export function HeroSection() {
