@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 
 const PROFILE_IMAGE = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face";
 
-export default function HeroSection() {
+// Change from default export to named export
+export function HeroSection() {
   const [wandEffect, setWandEffect] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isSpellCasting, setIsSpellCasting] = useState(false);
