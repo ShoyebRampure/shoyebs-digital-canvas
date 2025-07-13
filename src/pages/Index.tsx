@@ -1,4 +1,3 @@
-
 import SidebarNav from "@/components/Sidebar";
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
