@@ -5,73 +5,203 @@ export const AboutSection: React.FC = () => {
     <>
       <style>
         {`
-          @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-          @font-face {
-            font-family: 'HarryP';
-            src: url('https://cdn.jsdelivr.net/gh/Geeksltd/HP-Fonts/HarryPotter.ttf') format('truetype');
+          .bg-professional {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            backdrop-filter: blur(10px);
           }
 
-          .bg-hogwarts {
-            background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+          .shadow-professional {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
           }
 
-          .shadow-magical {
-            box-shadow: 0 0 20px 6px rgba(255, 215, 0, 0.3);
+          .text-primary {
+            color: #1e293b;
           }
 
-          .text-gold {
-            color: #FFD700;
+          .text-secondary {
+            color: #475569;
           }
 
-          .border-gold {
-            border: 2px solid #FFD700;
+          .text-accent {
+            color: #3b82f6;
           }
 
-          .text-parchment {
-            color: #f5f0dc;
+          .border-professional {
+            border: 1px solid #e2e8f0;
           }
 
-          .font-harry {
-            font-family: 'HarryP', 'IM Fell English SC', serif;
+          .font-primary {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
           }
 
-          .text-hufflepuff {
-            color: #ecb939;
+          .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           }
 
-          @keyframes fade-in {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+          .hover-lift:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
           }
 
-          .animate-fade-in {
-            animation: fade-in 1s ease-out both;
+          .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+          }
+
+          .fade-in-up.delay-1 {
+            animation-delay: 0.2s;
+          }
+
+          .fade-in-up.delay-2 {
+            animation-delay: 0.4s;
+          }
+
+          .fade-in-up.delay-3 {
+            animation-delay: 0.6s;
+          }
+
+          @keyframes fadeInUp {
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          .skill-badge {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: inline-block;
+            margin: 0.25rem;
+            transition: all 0.3s ease;
+          }
+
+          .skill-badge:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+          }
+
+          .info-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: 1px solid #f1f5f9;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+          }
+
+          .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+          }
+
+          .info-card:hover {
+            border-color: #e2e8f0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+          }
+
+          .icon-wrapper {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.75rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+          }
+
+          .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e293b 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            position: relative;
+          }
+
+          .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 3rem;
+            height: 3px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border-radius: 1.5px;
+          }
+
+          @media (max-width: 768px) {
+            .section-title {
+              font-size: 2rem;
+            }
           }
         `}
       </style>
 
       <section
         id="about"
-        className="w-full max-w-3xl mx-auto mt-10 p-8 rounded-2xl bg-hogwarts shadow-magical border-gold animate-fade-in"
+        className="w-full max-w-4xl mx-auto mt-10 p-8 rounded-2xl bg-professional shadow-professional border-professional font-primary hover-lift fade-in-up"
       >
-        <h2 className="text-3xl font-harry text-gold mb-4">⚡ About Me ⚡</h2>
-        <div className="space-y-4 text-lg text-parchment font-serif tracking-wide">
-          <div>
-            <span className="font-semibold text-hufflepuff">
-              🎓 B.E. in Information Science and Engineering
-            </span>
+        <h2 className="section-title text-primary fade-in-up delay-1">
+          About Me
+        </h2>
+        
+        <div className="grid md:grid-cols-2 gap-6 mb-6">
+          <div className="info-card fade-in-up delay-2">
+            <div className="icon-wrapper">
+              🎓
+            </div>
+            <h3 className="text-xl font-semibold text-primary mb-2">
+              Education
+            </h3>
+            <p className="text-secondary font-medium">
+              B.E. in Information Science and Engineering
+            </p>
+            <p className="text-secondary text-sm mt-1">
+              B.N.M Institute of Technology | CGPA: 8.55 (2022–2026)
+            </p>
           </div>
-          <div>
-            <span className="font-medium">
-              🏰 B.N.M Institute of Technology | CGPA: 8.55 (2022–2026)
-            </span>
+
+          <div className="info-card fade-in-up delay-3">
+            <div className="icon-wrapper">
+              ⚡
+            </div>
+            <h3 className="text-xl font-semibold text-primary mb-2">
+              Expertise
+            </h3>
+            <p className="text-secondary leading-relaxed">
+              Motivated engineer skilled in AI/ML, IoT systems, and RPA, with practical experience from internships and hackathons.
+            </p>
           </div>
-          <div>
-            <span>
-              ✨ A motivated wizard-in-training skilled in the mystical arts of AI/ML, enchanted IoT systems,
-              and spellbinding RPA, with battle experience from magical internships and hackathons.
-            </span>
+        </div>
+
+        <div className="info-card fade-in-up delay-3">
+          <h3 className="text-xl font-semibold text-primary mb-4">
+            Core Skills
+          </h3>
+          <div className="flex flex-wrap">
+            <span className="skill-badge">AI/ML</span>
+            <span className="skill-badge">IoT Systems</span>
+            <span className="skill-badge">RPA</span>
+            <span className="skill-badge">Software Engineering</span>
+            <span className="skill-badge">Problem Solving</span>
+            <span className="skill-badge">Innovation</span>
           </div>
         </div>
       </section>

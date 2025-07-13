@@ -80,7 +80,7 @@ export const AchievementsSection: React.FC = () => {
         id="achievements"
         className="w-full max-w-4xl mx-auto mt-12 px-6 py-10 rounded-3xl bg-hogwarts shadow-magical border-gold animate-fade-in"
       >
-        <h2 className="text-4xl font-harry text-gold mb-8 text-center">🏆 Magical Achievements 🏆</h2>
+        <h2 className="text-4xl font-harry text-gold mb-8 text-center">🏆  Achievements 🏆</h2>
         <div className="scroll parchment space-y-6 text-lg font-serif text-parchment leading-relaxed">
           <div className="glow-on-hover">
             <span className="wand-icon">🪄</span>
