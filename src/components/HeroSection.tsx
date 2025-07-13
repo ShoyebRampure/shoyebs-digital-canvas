@@ -1,9 +1,9 @@
 import { Linkedin, Github } from "lucide-react";
 import { useState, useEffect } from "react";
 
-const PROFILE_IMAGE = "profile.jpg";
+const PROFILE_IMAGE = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face";
 
-export function HeroSection() {
+export default function HeroSection() {
   const [wandEffect, setWandEffect] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isSpellCasting, setIsSpellCasting] = useState(false);
@@ -33,249 +33,256 @@ export function HeroSection() {
     <>
       <style>
         {`
-          @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=Cambria:wght@400;500;600;700&display=swap');
 
-          @font-face {
-            font-family: 'HarryP';
-            src: url('https://cdn.jsdelivr.net/gh/Geeksltd/HP-Fonts/HarryPotter.ttf') format('truetype');
+          * {
+            font-family: 'Cambria', serif;
           }
 
-          .font-harry {
-            font-family: 'HarryP', 'IM Fell English SC', serif;
+          .font-cambria {
+            font-family: 'Cambria', serif;
           }
 
-          .text-glow {
-            text-shadow: 0 0 6px #FFD700, 0 0 12px #ecb939;
+          .text-subtle-glow {
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
           }
 
           .bg-hero {
-            background: radial-gradient(ellipse at center, #1c1c1c 0%, #000000 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             position: relative;
             overflow: hidden;
           }
 
-          .btn-hogwarts {
-            border: 1px solid #FFD700;
-            background: linear-gradient(to right, #6a3805, #FFD700);
-            color: #1a1a1a;
+          .bg-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            opacity: 0.6;
+          }
+
+          .btn-professional {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             font-weight: 600;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
           }
 
-          .btn-hogwarts:hover {
-            background: linear-gradient(to right, #FFD700, #6a3805);
-            transform: scale(1.08);
-            box-shadow: 0 0 12px #FFD700aa;
+          .btn-professional:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
           }
 
-          .btn-hogwarts::before {
+          .btn-professional::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transform: rotate(45deg);
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: all 0.5s;
-            opacity: 0;
           }
 
-          .btn-hogwarts:hover::before {
-            animation: shimmer 0.6s ease-in-out;
+          .btn-professional:hover::before {
+            left: 100%;
           }
 
-          .btn-slytherin {
-            background: linear-gradient(to right, #0b3d2e, #0ec979);
+          .btn-secondary {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             color: white;
             font-weight: 600;
-            border: 1px solid #0ec979;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
           }
 
-          .btn-slytherin:hover {
-            transform: scale(1.08);
-            box-shadow: 0 0 10px #0ec979aa;
+          .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
           }
 
-          .btn-slytherin::before {
+          .btn-secondary::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transform: rotate(45deg);
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: all 0.5s;
-            opacity: 0;
           }
 
-          .btn-slytherin:hover::before {
-            animation: shimmer 0.6s ease-in-out;
+          .btn-secondary:hover::before {
+            left: 100%;
           }
 
-          .shadow-wand {
-            box-shadow: 0 0 20px #FFD70088;
-          }
-
-          .hero-glow-box {
-            background: rgba(255, 253, 208, 0.05);
-            backdrop-filter: blur(6px);
-            padding: 2rem;
-            border-radius: 1rem;
-            border: 1px solid rgba(255, 215, 0, 0.15);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.08);
+          .professional-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease-in-out;
             position: relative;
             overflow: hidden;
           }
 
-          .hero-glow-box:hover {
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+          .professional-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
 
-          .magic-sparkle {
+          .professional-card::before {
+            content: '';
             position: absolute;
-            width: 6px;
-            height: 6px;
-            background: #FFD700;
-            border-radius: 50%;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #4facfe);
+            border-radius: 20px 20px 0 0;
+          }
+
+          .floating-element {
+            position: absolute;
+            opacity: 0.1;
             animation: float 6s infinite ease-in-out;
-            opacity: 0.7;
           }
 
-          .shooting-star {
+          .geometric-shape {
             position: absolute;
-            width: 3px;
-            height: 3px;
-            background: #FFD700;
+            background: linear-gradient(45deg, #667eea, #764ba2);
             border-radius: 50%;
-            animation: shootingStar 4s infinite linear;
+            opacity: 0.05;
+            animation: rotate 20s infinite linear;
           }
 
-          .lightning-bolt {
-            position: absolute;
-            width: 2px;
-            height: 40px;
-            background: linear-gradient(to bottom, #FFD700, #FFA500);
-            opacity: 0;
-            animation: lightning 3s infinite;
-          }
-
-          .wand-trail {
-            position: absolute;
-            width: 300px;
-            height: 2px;
-            background: linear-gradient(to right, transparent, #FFD700, transparent);
-            opacity: 0;
-            animation: wandTrail 2s ease-out;
-          }
-
-          .spell-circle {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border: 2px solid #FFD700;
-            border-radius: 50%;
-            opacity: 0;
-            animation: spellCircle 2s ease-out;
-          }
-
-          .profile-magical {
+          .profile-professional {
             position: relative;
             transition: all 0.5s ease;
           }
 
-          .profile-magical:hover {
-            transform: scale(1.05) rotate(5deg);
-            filter: brightness(1.1);
+          .profile-professional:hover {
+            transform: scale(1.05);
           }
 
-          .profile-magical::before {
+          .profile-professional::before {
             content: '';
             position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            border: 2px solid #FFD700;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            background: linear-gradient(45deg, #667eea, #764ba2, #4facfe);
             border-radius: 50%;
             opacity: 0;
-            animation: profileGlow 3s infinite;
+            transition: opacity 0.3s ease;
+            z-index: -1;
           }
 
-          .hogwarts-letter {
-            position: absolute;
-            width: 40px;
-            height: 30px;
-            background: #f4f1e8;
-            border: 1px solid #8B4513;
-            animation: floatingLetter 8s infinite ease-in-out;
-            opacity: 0.8;
+          .profile-professional:hover::before {
+            opacity: 1;
           }
 
-          .magical-cursor {
+          .subtle-cursor {
             position: absolute;
-            width: 20px;
-            height: 20px;
-            background: radial-gradient(circle, #FFD700, transparent);
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.4), transparent);
             border-radius: 50%;
             pointer-events: none;
-            opacity: 0.6;
+            opacity: 0.4;
             transition: all 0.1s ease;
           }
 
-          @keyframes shimmer {
-            0% { transform: translateX(-100%) rotate(45deg); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateX(100%) rotate(45deg); opacity: 0; }
+          .interaction-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 600;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+          }
+
+          .interaction-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+          }
+
+          .interaction-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.5s;
+          }
+
+          .interaction-btn:hover::before {
+            left: 100%;
           }
 
           @keyframes float {
-            0% { transform: translateY(0) scale(1); opacity: 0.6; }
-            50% { transform: translateY(-60px) scale(1.2); opacity: 1; }
-            100% { transform: translateY(0) scale(1); opacity: 0.6; }
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+            100% { transform: translateY(0px) rotate(360deg); }
           }
 
-          @keyframes shootingStar {
-            0% { transform: translateX(-100px) translateY(100px); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateX(100vw) translateY(-100px); opacity: 0; }
+          @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
           }
 
-          @keyframes lightning {
-            0%, 90%, 100% { opacity: 0; }
-            5%, 15% { opacity: 1; }
+          @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translateY(30px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
           }
 
-          @keyframes wandTrail {
-            0% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1); }
-            100% { opacity: 0; transform: scale(1.2); }
+          .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
           }
 
-          @keyframes spellCircle {
-            0% { opacity: 0; transform: scale(0) rotate(0deg); }
-            50% { opacity: 1; transform: scale(1) rotate(180deg); }
-            100% { opacity: 0; transform: scale(1.5) rotate(360deg); }
+          .fade-in-up-delay {
+            animation: fadeInUp 0.8s ease-out 0.2s both;
           }
 
-          @keyframes profileGlow {
-            0%, 100% { opacity: 0; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(1.1); }
+          .fade-in-up-delay-2 {
+            animation: fadeInUp 0.8s ease-out 0.4s both;
           }
 
-          @keyframes floatingLetter {
-            0% { transform: translateY(0) rotate(0deg); }
-            25% { transform: translateY(-20px) rotate(5deg); }
-            50% { transform: translateY(0) rotate(0deg); }
-            75% { transform: translateY(-15px) rotate(-5deg); }
-            100% { transform: translateY(0) rotate(0deg); }
+          .fade-in-up-delay-3 {
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+          }
+
+          .typewriter {
+            overflow: hidden;
+            border-right: 0.15em solid #333;
+            white-space: nowrap;
+            animation: typewriter 2s steps(40, end), blink-caret 0.75s step-end infinite;
+            display: inline-block;
           }
 
           @keyframes typewriter {
@@ -283,87 +290,62 @@ export function HeroSection() {
             to { width: 100%; }
           }
 
-          .typewriter {
-            overflow: hidden;
-            border-right: 0.15em solid #FFD700;
-            white-space: nowrap;
-            animation: typewriter 3s steps(40, end), blink-caret 0.75s step-end infinite;
-            display: inline-block;
-          }
-
           @keyframes blink-caret {
             from, to { border-color: transparent; }
-            50% { border-color: #FFD700; }
+            50% { border-color: #333; }
           }
 
-          .spell-cast {
-            animation: spellPulse 2s ease-out;
+          .professional-pulse {
+            animation: professionalPulse 2s ease-out;
           }
 
-          @keyframes spellPulse {
-            0% { transform: scale(1); filter: brightness(1); }
-            50% { transform: scale(1.05); filter: brightness(1.3); }
-            100% { transform: scale(1); filter: brightness(1); }
+          @keyframes professionalPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+          }
+
+          .status-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #4ade80;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+          }
+
+          @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
           }
         `}
       </style>
 
       <section
         id="home"
-        className="relative flex flex-col items-center justify-center min-h-[90vh] py-20 bg-hero text-white font-harry animate-fade-in"
+        className="relative flex flex-col items-center justify-center min-h-screen py-20 bg-hero text-gray-800"
       >
-        {/* Magical cursor follower */}
+        {/* Subtle cursor follower */}
         <div 
-          className="magical-cursor"
+          className="subtle-cursor"
           style={{
             left: `${mousePosition.x}%`,
             top: `${mousePosition.y}%`,
           }}
         />
 
-        {/* Floating Hogwarts letters */}
-        {[...Array(3)].map((_, i) => (
-          <div
-            key={`letter-${i}`}
-            className="hogwarts-letter"
-            style={{
-              left: `${20 + i * 30}%`,
-              top: `${20 + i * 15}%`,
-              animationDelay: `${i * 2}s`,
-            }}
-          />
-        ))}
+        {/* Floating geometric shapes */}
+        <div className="geometric-shape w-32 h-32 top-20 left-20" />
+        <div className="geometric-shape w-24 h-24 top-40 right-32" />
+        <div className="geometric-shape w-16 h-16 bottom-32 left-40" />
 
-        {/* Lightning bolts */}
-        {[...Array(5)].map((_, i) => (
+        {/* Floating elements */}
+        {[...Array(8)].map((_, i) => (
           <div
-            key={`lightning-${i}`}
-            className="lightning-bolt"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 50}%`,
-              animationDelay: `${Math.random() * 3}s`,
-            }}
-          />
-        ))}
-
-        {/* Shooting stars */}
-        {[...Array(3)].map((_, i) => (
-          <div
-            key={`star-${i}`}
-            className="shooting-star"
-            style={{
-              top: `${Math.random() * 30}%`,
-              animationDelay: `${Math.random() * 4}s`,
-            }}
-          />
-        ))}
-
-        {/* Magical floating particles */}
-        {[...Array(25)].map((_, i) => (
-          <span
-            key={i}
-            className="magic-sparkle"
+            key={`element-${i}`}
+            className="floating-element w-2 h-2 bg-white rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -372,87 +354,66 @@ export function HeroSection() {
           />
         ))}
 
-        {/* Spell effects */}
-        {wandEffect && (
-          <>
-            <div
-              className="wand-trail"
-              style={{
-                left: '50%',
-                top: '50%',
-                transform: 'translate(-50%, -50%)',
-              }}
-            />
-            <div
-              className="spell-circle"
-              style={{
-                left: '50%',
-                top: '50%',
-                transform: 'translate(-50%, -50%)',
-              }}
-            />
-          </>
-        )}
-
-        <div className={`hero-glow-box z-10 text-center ${isSpellCasting ? 'spell-cast' : ''}`}>
-          <div className="flex justify-center mb-6">
-            <div className="profile-magical">
+        <div className={`professional-card z-10 text-center max-w-2xl mx-4 ${isSpellCasting ? 'professional-pulse' : ''}`}>
+          <div className="flex justify-center mb-8 fade-in-up">
+            <div className="profile-professional">
               <img
                 src={PROFILE_IMAGE}
                 alt="Shoyeb Rampure"
-                className="rounded-full border-4 border-yellow-400 shadow-wand w-36 h-36 object-cover cursor-pointer"
+                className="rounded-full w-32 h-32 object-cover cursor-pointer shadow-lg"
                 draggable={false}
                 onClick={castSpell}
               />
             </div>
           </div>
 
-          <h1 className="text-5xl md:text-6xl font-harry text-glow mb-4 hover:scale-105 transition-transform duration-300">
+          <h1 className="text-4xl md:text-5xl font-cambria font-bold text-gray-800 mb-4 fade-in-up-delay">
             <span className="typewriter">Shoyeb Rampure</span>
           </h1>
           
-          <p className="text-2xl md:text-3xl text-yellow-500 font-medium mb-2 hover:text-yellow-400 transition-colors duration-300">
-            🧙‍♂️ Engineering Wizard | AI/ML Alchemist | Spellcasting Hackathoner
+          <p className="text-xl md:text-2xl text-gray-600 font-medium mb-2 fade-in-up-delay-2">
+            Engineering Wizard | AI/ML Alchemist | Hackathon Enthusiast
           </p>
           
-          <p className="text-base md:text-lg text-yellow-200 mb-8 font-inter hover:text-yellow-100 transition-colors duration-300">
-            📜 shoyebrampure@gmail.com
+          <p className="text-base md:text-lg text-gray-500 mb-8 font-cambria fade-in-up-delay-2">
+            shoyebrampure@gmail.com
           </p>
 
-          {/* Magical spell casting button */}
-          <div className="mb-6">
+          {/* Professional interaction button */}
+          <div className="mb-8 fade-in-up-delay-3">
             <button
               onClick={castSpell}
-              className="px-6 py-3 bg-purple-800 hover:bg-purple-700 text-white rounded-full font-harry text-lg transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-purple-500/50"
+              className="interaction-btn font-cambria text-base"
             >
-              ✨ Cast Spell ✨
+              View Portfolio
             </button>
           </div>
 
-          <div className="flex items-center gap-6 justify-center">
+          <div className="flex items-center gap-6 justify-center fade-in-up-delay-3">
             <a
               href="https://www.linkedin.com/in/shoyeb-rampure-584958250/"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-hogwarts px-5 py-2 rounded-full inline-flex items-center gap-2 shadow transition group"
+              className="btn-professional px-6 py-3 rounded-full inline-flex items-center gap-3 font-cambria text-base transition group"
             >
-              <Linkedin size={22} className="group-hover:animate-bounce" />
+              <Linkedin size={20} className="group-hover:scale-110 transition-transform" />
               LinkedIn
             </a>
             <a
               href="https://github.com/ShoyebRampure"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-slytherin px-5 py-2 rounded-full inline-flex items-center gap-2 shadow transition group"
+              className="btn-secondary px-6 py-3 rounded-full inline-flex items-center gap-3 font-cambria text-base transition group"
             >
-              <Github size={22} className="group-hover:animate-spin" />
+              <Github size={20} className="group-hover:scale-110 transition-transform" />
               GitHub
             </a>
           </div>
 
-          {/* Magical status indicator */}
-          <div className="mt-6 text-yellow-300 text-sm opacity-70">
-            {isSpellCasting ? "🔮 Casting spell..." : "🪄 Click profile or spell button for magic!"}
+          {/* Professional status indicator */}
+          <div className="mt-8 text-gray-500 text-sm flex items-center justify-center fade-in-up-delay-3">
+            <span className="status-indicator"></span>
+            {isSpellCasting ? "Processing..." : "Available for opportunities"}
           </div>
         </div>
       </section>

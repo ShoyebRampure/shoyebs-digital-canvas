@@ -5,7 +5,7 @@ export const AboutSection: React.FC = () => {
     <>
       <style>
         {`
-          @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=Cambria:wght@400;700&display=swap');
 
           .bg-professional {
             background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
@@ -33,7 +33,7 @@ export const AboutSection: React.FC = () => {
           }
 
           .font-primary {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Cambria', Georgia, serif;
           }
 
           .hover-lift {
@@ -150,6 +150,37 @@ export const AboutSection: React.FC = () => {
             .section-title {
               font-size: 2rem;
             }
+            
+            .info-card {
+              padding: 1.25rem;
+            }
+            
+            .skill-badge {
+              font-size: 0.8rem;
+              padding: 0.4rem 0.8rem;
+              margin: 0.2rem;
+            }
+            
+            .icon-wrapper {
+              width: 2rem;
+              height: 2rem;
+              font-size: 1rem;
+            }
+          }
+
+          @media (max-width: 480px) {
+            .section-title {
+              font-size: 1.75rem;
+            }
+            
+            .info-card {
+              padding: 1rem;
+            }
+            
+            .skill-badge {
+              font-size: 0.75rem;
+              padding: 0.35rem 0.7rem;
+            }
           }
         `}
       </style>
@@ -162,32 +193,34 @@ export const AboutSection: React.FC = () => {
           About Me
         </h2>
         
-        <div className="grid md:grid-cols-2 gap-6 mb-6">
-          <div className="info-card fade-in-up delay-2">
-            <div className="icon-wrapper">
-              🎓
+        <div className="grid gap-6 mb-6">
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="info-card fade-in-up delay-2">
+              <div className="icon-wrapper">
+                🎓
+              </div>
+              <h3 className="text-xl font-semibold text-primary mb-2">
+                Education
+              </h3>
+              <p className="text-secondary font-medium">
+                B.E. in Information Science and Engineering
+              </p>
+              <p className="text-secondary text-sm mt-1">
+                B.N.M Institute of Technology | CGPA: 8.55 (2022–2026)
+              </p>
             </div>
-            <h3 className="text-xl font-semibold text-primary mb-2">
-              Education
-            </h3>
-            <p className="text-secondary font-medium">
-              B.E. in Information Science and Engineering
-            </p>
-            <p className="text-secondary text-sm mt-1">
-              B.N.M Institute of Technology | CGPA: 8.55 (2022–2026)
-            </p>
-          </div>
 
-          <div className="info-card fade-in-up delay-3">
-            <div className="icon-wrapper">
-              ⚡
+            <div className="info-card fade-in-up delay-3">
+              <div className="icon-wrapper">
+                ⚡
+              </div>
+              <h3 className="text-xl font-semibold text-primary mb-2">
+                Expertise
+              </h3>
+              <p className="text-secondary leading-relaxed">
+                Motivated engineer skilled in AI/ML, IoT systems, and RPA, with practical experience from internships and hackathons.
+              </p>
             </div>
-            <h3 className="text-xl font-semibold text-primary mb-2">
-              Expertise
-            </h3>
-            <p className="text-secondary leading-relaxed">
-              Motivated engineer skilled in AI/ML, IoT systems, and RPA, with practical experience from internships and hackathons.
-            </p>
           </div>
         </div>
 

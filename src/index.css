@@ -4,141 +4,142 @@
 
 @layer base {
   :root {
-    /* Base UI Colors - Parchment Theme */
-    --background: 45 15% 92%;
-    --foreground: 32 100% 10%;
+    /* Professional UI Colors - Clean Modern Theme */
+    --background: 0 0% 98%;
+    --foreground: 222 15% 12%;
 
-    --card: 42 34% 85%;
-    --card-foreground: 32 100% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 15% 12%;
 
-    --popover: 43 20% 90%;
-    --popover-foreground: 32 100% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 15% 12%;
 
-    --primary: 45 85% 40%; /* Golden spell */
-    --primary-foreground: 32 100% 5%;
+    --primary: 233 57% 65%; /* Professional blue */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 32 20% 85%;
-    --secondary-foreground: 32 100% 10%;
+    --secondary: 210 20% 95%;
+    --secondary-foreground: 222 15% 12%;
 
-    --muted: 42 20% 80%;
-    --muted-foreground: 32 20% 40%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 13% 45%;
 
-    --accent: 146 38% 45%; /* Slytherin green */
-    --accent-foreground: 45 90% 95%;
+    --accent: 250 60% 70%; /* Professional purple accent */
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 65% 45%;
+    --destructive: 0 65% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 32 15% 60%;
-    --input: 32 15% 60%;
-    --ring: 45 85% 40%;
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 233 57% 65%;
 
     --radius: 0.75rem;
 
     /* Sidebar colors */
-    --sidebar-background: 32 20% 20%;
-    --sidebar-foreground: 45 85% 90%;
-    --sidebar-primary: 45 85% 40%;
-    --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 146 38% 45%;
-    --sidebar-accent-foreground: 45 90% 95%;
-    --sidebar-border: 32 15% 60%;
-    --sidebar-ring: 45 85% 40%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 15% 12%;
+    --sidebar-primary: 233 57% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 250 60% 70%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 214 20% 88%;
+    --sidebar-ring: 233 57% 65%;
 
-    /* Hogwarts House Themes */
-    --gryffindor: 0 85% 45%;
-    --slytherin: 146 38% 38%;
-    --ravenclaw: 222 45% 42%;
-    --hufflepuff: 45 95% 55%;
+    /* Professional Theme Colors */
+    --primary-blue: 233 57% 65%;
+    --secondary-purple: 250 60% 70%;
+    --neutral-gray: 215 13% 45%;
+    --success-green: 142 76% 36%;
 
     /* Additional Tokens */
-    --badge: 45 70% 65%;
-    --badge-foreground: 0 0% 15%;
+    --badge: 233 57% 65%;
+    --badge-foreground: 0 0% 100%;
 
-    --link: 222 90% 55%;
-    --link-hover: 222 100% 75%;
+    --link: 233 57% 65%;
+    --link-hover: 233 70% 75%;
 
-    --code-bg: 32 20% 80%;
-    --code-text: 32 100% 20%;
+    --code-bg: 210 20% 96%;
+    --code-text: 222 15% 12%;
 
-    --highlight: 45 100% 70%;
-    --highlight-foreground: 0 0% 0%;
+    --highlight: 233 57% 65%;
+    --highlight-foreground: 0 0% 100%;
 
-    --glass-bg: 42 34% 90% / 0.2;
-    --glass-blur: blur(6px);
-  }
-
-  .dark {
-    --background: 32 10% 8%;
-    --foreground: 45 85% 90%;
-
-    --card: 32 15% 12%;
-    --card-foreground: 45 85% 90%;
-
-    --popover: 32 15% 12%;
-    --popover-foreground: 45 85% 90%;
-
-    --primary: 45 85% 60%;
-    --primary-foreground: 32 10% 10%;
-
-    --secondary: 32 15% 20%;
-    --secondary-foreground: 45 85% 90%;
-
-    --muted: 32 10% 20%;
-    --muted-foreground: 45 20% 60%;
-
-    --accent: 146 38% 40%;
-    --accent-foreground: 45 90% 95%;
-
-    --destructive: 0 65% 40%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 32 10% 30%;
-    --input: 32 10% 30%;
-    --ring: 45 85% 60%;
-
-    --sidebar-background: 32 10% 10%;
-    --sidebar-foreground: 45 85% 90%;
-    --sidebar-primary: 45 85% 60%;
-    --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 146 38% 40%;
-    --sidebar-accent-foreground: 45 90% 95%;
-    --sidebar-border: 32 10% 30%;
-    --sidebar-ring: 45 85% 60%;
-
-    --gryffindor: 0 85% 55%;
-    --slytherin: 146 45% 50%;
-    --ravenclaw: 222 55% 65%;
-    --hufflepuff: 45 100% 70%;
-
-    --badge: 45 70% 60%;
-    --badge-foreground: 32 10% 5%;
-
-    --link: 222 90% 70%;
-    --link-hover: 222 100% 85%;
-
-    --code-bg: 32 10% 20%;
-    --code-text: 45 85% 90%;
-
-    --highlight: 45 100% 75%;
-    --highlight-foreground: 0 0% 0%;
-
-    --glass-bg: 32 20% 15% / 0.25;
+    --glass-bg: 0 0% 100% / 0.8;
     --glass-blur: blur(8px);
   }
 
-  /* Global styling */
+  .dark {
+    --background: 222 15% 7%;
+    --foreground: 210 20% 98%;
+
+    --card: 222 15% 9%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 222 15% 9%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 233 57% 70%;
+    --primary-foreground: 222 15% 7%;
+
+    --secondary: 217 19% 12%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 217 19% 12%;
+    --muted-foreground: 215 13% 65%;
+
+    --accent: 250 60% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 65% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 217 19% 18%;
+    --input: 217 19% 18%;
+    --ring: 233 57% 70%;
+
+    --sidebar-background: 222 15% 5%;
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-primary: 233 57% 70%;
+    --sidebar-primary-foreground: 222 15% 7%;
+    --sidebar-accent: 250 60% 65%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 217 19% 18%;
+    --sidebar-ring: 233 57% 70%;
+
+    --primary-blue: 233 57% 70%;
+    --secondary-purple: 250 60% 65%;
+    --neutral-gray: 215 13% 65%;
+    --success-green: 142 76% 36%;
+
+    --badge: 233 57% 70%;
+    --badge-foreground: 222 15% 7%;
+
+    --link: 233 57% 70%;
+    --link-hover: 233 70% 80%;
+
+    --code-bg: 217 19% 12%;
+    --code-text: 210 20% 98%;
+
+    --highlight: 233 57% 70%;
+    --highlight-foreground: 222 15% 7%;
+
+    --glass-bg: 222 15% 9% / 0.8;
+    --glass-blur: blur(10px);
+  }
+
+  /* Global styling with Cambria font */
   * {
     @apply border-border;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
+    font-family: 'Cambria', serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Scrollbar Styling */
+  /* Professional Scrollbar Styling */
   ::-webkit-scrollbar {
     width: 8px;
   }
@@ -148,8 +149,12 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--accent));
+    background: hsl(var(--primary));
     border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--accent));
   }
 
   ::selection {
@@ -170,7 +175,7 @@
     color: hsl(var(--link));
     text-decoration: underline;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   a:hover {
@@ -178,21 +183,142 @@
     text-decoration-color: hsl(var(--highlight));
   }
 
-  h1, h2, h3 {
-    font-family: 'IM Fell English SC', serif;
-    letter-spacing: 0.5px;
+  /* Professional typography with Cambria */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cambria', serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 0.875rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    font-family: 'Cambria', serif;
+    line-height: 1.6;
+    margin-bottom: 1rem;
   }
 
   button {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Cambria', serif;
     font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .shadow-hogwarts {
-    box-shadow: 0 0 10px hsl(var(--primary) / 0.6);
+  /* Professional shadow effects */
+  .shadow-professional {
+    box-shadow: 0 4px 20px hsl(var(--primary) / 0.1);
   }
 
-  .glow-effect {
-    text-shadow: 0 0 8px hsl(var(--highlight));
+  .shadow-professional-lg {
+    box-shadow: 0 8px 40px hsl(var(--primary) / 0.12);
+  }
+
+  .professional-glow {
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.2);
+  }
+
+  /* Professional gradient effects */
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Professional card styles */
+  .professional-card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .professional-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px hsl(var(--primary) / 0.1);
+  }
+
+  /* Professional form styles */
+  .professional-input {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+    font-family: 'Cambria', serif;
+    transition: all 0.3s ease;
+  }
+
+  .professional-input:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 2px hsl(var(--primary) / 0.1);
+  }
+
+  /* Professional button styles */
+  .btn-professional {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    color: hsl(var(--primary-foreground));
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.75rem 1.5rem;
+    font-family: 'Cambria', serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-professional:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px hsl(var(--primary) / 0.3);
+  }
+
+  /* Professional animations */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.8s ease-out forwards;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 }
