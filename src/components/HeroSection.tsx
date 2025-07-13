@@ -373,7 +373,7 @@ export function HeroSection() {
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-600 font-medium mb-2 fade-in-up-delay-2">
-            Engineering Wizard | AI/ML Alchemist | Hackathon Enthusiast
+           Information Science Engineer | AI/ML | Hackathon Enthusiast
           </p>
           
           <p className="text-base md:text-lg text-gray-500 mb-8 font-cambria fade-in-up-delay-2">
