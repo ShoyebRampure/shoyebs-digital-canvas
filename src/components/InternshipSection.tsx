@@ -175,7 +175,7 @@ export default function InternshipSection() {
         <div className="internship-card fade-in-up-delay-2">
           <div className="icon-badge">Navigation Systems</div>
           <h3 className="internship-title">
-            Project Intern <span className="internship-company">ISTRAC ISRO - NSA Department</span>
+            Project Intern <span className="internship-company">ISRO</span>
           </h3>
           <div className="internship-duration">June 2025 – Present</div>
           <ul className="internship-list">
