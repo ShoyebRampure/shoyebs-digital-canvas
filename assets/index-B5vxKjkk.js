@@ -1775,7 +1775,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${t.do
               font-size: 0.95rem;
             }
           }
-        `}),d.jsx("div",{className:"resume-container",children:d.jsxs("a",{href:"/resume.pdf",target:"_blank",download:!0,className:"resume-btn",children:[d.jsx("span",{className:"download-icon",children:"📄"}),d.jsx("span",{className:"btn-text",children:"Download Resume"})]})})]})}function mk(){const[e,t]=h.useState({name:"",email:"",message:""}),[n,r]=h.useState(!1),[o,i]=h.useState(!1),s=l=>{const{name:u,value:p}=l.target;t(f=>({...f,[u]:p}))},a=l=>{if(l.preventDefault(),!e.name||!e.email||!e.message){alert("Please fill in all fields");return}r(!0),i(!0);const u="918095523567",p=`Hello, I'm ${e.name}.
+        `}),d.jsx("div",{className:"resume-container",children:d.jsxs("a",{href:"/resume.pdf",target:"_blank",download:!0,className:"resume-btn",children:[d.jsx("span",{className:"download-icon",children:"📄"}),d.jsx("span",{className:"btn-text",children:"Resume"})]})})]})}function mk(){const[e,t]=h.useState({name:"",email:"",message:""}),[n,r]=h.useState(!1),[o,i]=h.useState(!1),s=l=>{const{name:u,value:p}=l.target;t(f=>({...f,[u]:p}))},a=l=>{if(l.preventDefault(),!e.name||!e.email||!e.message){alert("Please fill in all fields");return}r(!0),i(!0);const u="918095523567",p=`Hello, I'm ${e.name}.
 Email: ${e.email}
 Message: ${e.message}`,f=`https://wa.me/${u}?text=${encodeURIComponent(p)}`;setTimeout(()=>{r(!1),t({name:"",email:"",message:""}),i(!1),window.open(f,"_blank")},2e3)};return d.jsxs(d.Fragment,{children:[d.jsx("style",{children:`
           @import url('https://fonts.googleapis.com/css2?family=Cambria:wght@400;700&display=swap');
