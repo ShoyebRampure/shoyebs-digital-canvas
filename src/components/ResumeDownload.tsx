@@ -105,7 +105,7 @@ export function ResumeDownload() {
           className="resume-btn"
         >
           <span className="download-icon">📄</span>
-          <span className="btn-text">Download Resume</span>
+          <span className="btn-text">Resume</span>
         </a>
       </div>
     </>
