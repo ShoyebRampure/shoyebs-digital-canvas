@@ -218,7 +218,7 @@ export const AboutSection: React.FC = () => {
                 Expertise
               </h3>
               <p className="text-secondary leading-relaxed">
-                Focused on real-world problem solving, I leverage AI/ML and IoT to design and deliver impactful solutions, with experience from professional internships and hackathons."
+                Focused on real-world problem solving, I leverage AI/ML and IoT to design and deliver impactful solutions, with experience from professional internships and hackathons.
               </p>
             </div>
           </div>
