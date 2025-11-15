@@ -206,7 +206,7 @@ export const AboutSection: React.FC = () => {
                 B.E. in Information Science and Engineering
               </p>
               <p className="text-secondary text-sm mt-1">
-                B.N.M Institute of Technology | CGPA: 8.55 (2022–2026)
+                B.N.M Institute of Technology | CGPA: 9.06 (2022–2026)
               </p>
             </div>
 
@@ -218,7 +218,7 @@ export const AboutSection: React.FC = () => {
                 Expertise
               </h3>
               <p className="text-secondary leading-relaxed">
-                Motivated engineer skilled in AI/ML, IoT systems, and RPA, with practical experience from internships and hackathons.
+                Focused on real-world problem solving, I leverage AI/ML and IoT to design and deliver impactful solutions, with experience from professional internships and hackathons."
               </p>
             </div>
           </div>

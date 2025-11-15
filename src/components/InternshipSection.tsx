@@ -133,9 +133,19 @@ export default function InternshipSection() {
           .fade-in-up-delay {
             animation: fadeInUp 0.6s ease-out 0.2s both;
           }
+          
+          /* --- ADDED THIS CLASS --- */
+          .fade-in-up-delay-2 {
+            animation: fadeInUp 0.6s ease-out 0.4s both;
+          }
 
           .fade-in-up-delay-3 {
             animation: fadeInUp 0.6s ease-out 0.6s both;
+          }
+
+          /* --- ADDED THIS CLASS --- */
+          .fade-in-up-delay-4 {
+            animation: fadeInUp 0.6s ease-out 0.8s both;
           }
 
           @keyframes fadeInUp {
@@ -170,23 +180,40 @@ export default function InternshipSection() {
           Professional Experience
         </h2>
 
-        
+        {/* --- NEW INTERNSHIP ADDED HERE --- */}
+        <div className="internship-card fade-in-up-delay">
+          <div className="icon-badge">Cloud & DevOps</div>
+          <h3 className="internship-title">
+            IT Intern <span className="internship-company">Version1</span>
+          </h3>
+          <div className="internship-duration">November 2025 – Present</div>
+          <ul className="internship-list">
+            <li>Developing end-to-end production solutions using Azure DevOps and modern full-stack frameworks.</li>
+            <li>Applying agile and analytical problem-solving to build efficient, scalable systems.</li>
+            <li>Implementing CI/CD pipelines for automated testing and deployment.</li>
+            <li>Collaborating with cross-functional teams to design and integrate new features.</li>
+          </ul>
+        </div>
 
+        {/* --- ISRO INTERNSHIP (DATE CHANGED & ANIMATION UPDATED) --- */}
         <div className="internship-card fade-in-up-delay-2">
           <div className="icon-badge">Navigation Systems</div>
           <h3 className="internship-title">
             Project Intern <span className="internship-company">ISRO</span>
           </h3>
-          <div className="internship-duration">June 2025 – Present</div>
+          {/* --- DATE UPDATED --- */}
+          <div className="internship-duration">June 2025 – October 2025</div>
           <ul className="internship-list">
             <li>Navigation and tracking systems development</li>
             <li>Implement Apache Kafka architecture for real-time data streaming</li>
+            <li>Built a Monitoring system for one way ranging using NavIC Reference Reciever</li>
             <li>Work on satellite communication protocols</li>
             <li>Collaborate with aerospace engineering teams</li>
           </ul>
         </div>
 
-            <div className="internship-card fade-in-up-delay">
+        {/* --- THETA DYNAMICS (ANIMATION UPDATED) --- */}
+        <div className="internship-card fade-in-up-delay-3">
           <div className="icon-badge">Cybersecurity</div>
           <h3 className="internship-title">
             Cyber Security Intern at <span className="internship-company">Theta Dynamics Pvt. Ltd</span>
@@ -200,7 +227,8 @@ export default function InternshipSection() {
           </ul>
         </div>
 
-        <div className="internship-card fade-in-up-delay-2">
+        {/* --- BNM (ANIMATION UPDATED) --- */}
+        <div className="internship-card fade-in-up-delay-4">
           <div className="icon-badge">Web Development</div>
           <h3 className="internship-title">
             Web Development Intern at <span className="internship-company">B.N.M Institute of Technology</span>

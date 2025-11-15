@@ -193,8 +193,10 @@ export function SkillsSection() {
         <div className="skills-content">
           <h2 className="section-header">Technical Skills</h2>
           <div className="skills-grid">
+            
+            {/* --- UPDATED LANGUAGES BOX --- */}
             <div className="skill-category-container">
-              <div className="skill-category">Languages</div>
+              <div className="skill-category">Languages & Frameworks</div>
               <ul className="skills-list">
                 <li className="skill-item">
                   <span className="skill-item-text">Java</span>
@@ -205,6 +207,12 @@ export function SkillsSection() {
                 <li className="skill-item">
                   <span className="skill-item-text">Python</span>
                 </li>
+                <li className="skill-item"> {/* --- ADDED --- */}
+                  <span className="skill-item-text">Django</span>
+                </li>
+                <li className="skill-item"> {/* --- ADDED --- */}
+                  <span className="skill-item-text">Flask</span>
+                </li>
                 <li className="skill-item">
                   <span className="skill-item-text">HTML</span>
                 </li>
@@ -214,19 +222,21 @@ export function SkillsSection() {
                 <li className="skill-item">
                   <span className="skill-item-text">JavaScript</span>
                 </li>
+                <li className="skill-item"> {/* --- ADDED --- */}
+                  <span className="skill-item-text">React</span>
+                </li>
                 <li className="skill-item">
                   <span className="skill-item-text">SQL</span>
                 </li>
               </ul>
             </div>
+            
+            {/* --- UPDATED TECHNICAL AREAS BOX --- */}
             <div className="skill-category-container">
               <div className="skill-category">Technical Areas</div>
               <ul className="skills-list">
                 <li className="skill-item">
-                  <span className="skill-item-text">AI</span>
-                </li>
-                <li className="skill-item">
-                  <span className="skill-item-text">ML</span>
+                  <span className="skill-item-text">AI / ML</span>
                 </li>
                 <li className="skill-item">
                   <span className="skill-item-text">RPA</span>
@@ -239,6 +249,8 @@ export function SkillsSection() {
                 </li>
               </ul>
             </div>
+            
+            {/* --- CORE COURSES BOX (Unchanged) --- */}
             <div className="skill-category-container">
               <div className="skill-category">Core Courses</div>
               <ul className="skills-list">
@@ -256,6 +268,41 @@ export function SkillsSection() {
                 </li>
               </ul>
             </div>
+            
+            {/* --- NEW BOX ADDED --- */}
+            <div className="skill-category-container">
+              <div className="skill-category">Tools, Databases & Platforms</div>
+              <ul className="skills-list">
+                <li className="skill-item">
+                  <span className="skill-item-text">AWS Foundation</span>
+                </li>
+                <li className="skill-item">
+                  <span className="skill-item-text">Azure DevOps</span>
+                </li>
+                <li className="skill-item">
+                  <span className="skill-item-text">Apache Kafka</span>
+                </li>
+                <li className="skill-item">
+                  <span className="skill-item-text">Docker</span>
+                </li>
+                <li className="skill-item">
+                  <span className="skill-item-text">Git</span>
+                </li>
+                <li className="skill-item">
+                  <span className="skill-item-text">CI/CD (GitHub, Azure)</span>
+                </li>
+                <li className="skill-item">
+                  <span className="skill-item-text">Oracle DB</span>
+                </li>
+                <li className="skill-item">
+                  <span className="skill-item-text">MySQL</span>
+                </li>
+                <li className="skill-item">
+                  <span className="skill-item-text">MongoDB</span>
+                </li>
+              </ul>
+            </div>
+            
           </div>
         </div>
       </section>
