@@ -1,243 +1,137 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import {
+  GraduationCap,
+  Brain,
+  BarChart3,
+  Globe,
+  Cpu,
+  Lightbulb,
+  Rocket,
+} from 'lucide-react';
+
+const container = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.12 } },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6 },
+  },
+};
+
+const interests = [
+  { icon: Brain, label: 'Artificial Intelligence' },
+  { icon: BarChart3, label: 'Machine Learning' },
+  { icon: Globe, label: 'IoT Applications' },
+  { icon: Cpu, label: 'Embedded Systems' },
+  { icon: Lightbulb, label: 'Innovation & Patents' },
+  { icon: Rocket, label: 'Hackathons' },
+];
 
 export const AboutSection: React.FC = () => {
   return (
-    <>
-      <style>
-        {`
-          @import url('https://fonts.googleapis.com/css2?family=Cambria:wght@400;700&display=swap');
+    <section id="about" className="font-body w-full bg-transparent">
+      {/* Chapter banner — signature storytelling device */}
+      <div className="relative overflow-hidden bg-gradient-to-r from-violet-500 to-fuchsia-500 py-16">
+        <div className="mx-auto flex max-w-[1400px] flex-col items-center gap-6 px-4 text-center sm:flex-row sm:text-left">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            animate={{ y: [0, -8, 0] }}
+            transition={{
+              y: { duration: 4, repeat: Infinity },
+              default: { duration: 0.6 },
+            }}
+            className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm"
+          >
+            <GraduationCap className="h-9 w-9 text-white" strokeWidth={1.5} />
+          </motion.div>
+          <div>
+            <span className="text-sm font-semibold uppercase tracking-wide text-violet-100">
+              Chapter 1
+            </span>
+            <h2 className="font-display mt-1 text-4xl font-extrabold text-white sm:text-5xl">
+              Education
+            </h2>
+            <p className="mt-1 text-violet-100">Academic background</p>
+          </div>
+        </div>
+      </div>
 
-          .bg-professional {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-            backdrop-filter: blur(10px);
-          }
-
-          .shadow-professional {
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
-          }
-
-          .text-primary {
-            color: #1e293b;
-          }
-
-          .text-secondary {
-            color: #475569;
-          }
-
-          .text-accent {
-            color: #3b82f6;
-          }
-
-          .border-professional {
-            border: 1px solid #e2e8f0;
-          }
-
-          .font-primary {
-            font-family: 'Cambria', Georgia, serif;
-          }
-
-          .hover-lift {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          }
-
-          .hover-lift:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
-          }
-
-          .fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-            opacity: 0;
-            transform: translateY(30px);
-          }
-
-          .fade-in-up.delay-1 {
-            animation-delay: 0.2s;
-          }
-
-          .fade-in-up.delay-2 {
-            animation-delay: 0.4s;
-          }
-
-          .fade-in-up.delay-3 {
-            animation-delay: 0.6s;
-          }
-
-          @keyframes fadeInUp {
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-
-          .skill-badge {
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 0.75rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-            display: inline-block;
-            margin: 0.25rem;
-            transition: all 0.3s ease;
-          }
-
-          .skill-badge:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-          }
-
-          .info-card {
-            background: white;
-            border-radius: 1rem;
-            padding: 1.5rem;
-            border: 1px solid #f1f5f9;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-          }
-
-          .info-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-          }
-
-          .info-card:hover {
-            border-color: #e2e8f0;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-          }
-
-          .icon-wrapper {
-            width: 2.5rem;
-            height: 2.5rem;
-            border-radius: 0.75rem;
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-          }
-
-          .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #1e293b 0%, #3b82f6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 2rem;
-            position: relative;
-          }
-
-          .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -0.5rem;
-            left: 0;
-            width: 3rem;
-            height: 3px;
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            border-radius: 1.5px;
-          }
-
-          @media (max-width: 768px) {
-            .section-title {
-              font-size: 2rem;
-            }
-            
-            .info-card {
-              padding: 1.25rem;
-            }
-            
-            .skill-badge {
-              font-size: 0.8rem;
-              padding: 0.4rem 0.8rem;
-              margin: 0.2rem;
-            }
-            
-            .icon-wrapper {
-              width: 2rem;
-              height: 2rem;
-              font-size: 1rem;
-            }
-          }
-
-          @media (max-width: 480px) {
-            .section-title {
-              font-size: 1.75rem;
-            }
-            
-            .info-card {
-              padding: 1rem;
-            }
-            
-            .skill-badge {
-              font-size: 0.75rem;
-              padding: 0.35rem 0.7rem;
-            }
-          }
-        `}
-      </style>
-
-      <section
-        id="about"
-        className="w-full max-w-4xl mx-auto mt-10 p-8 rounded-2xl bg-professional shadow-professional border-professional font-primary hover-lift fade-in-up"
+      {/* Content */}
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.15 }}
+        className="mx-auto max-w-[1400px] px-4 py-16 sm:px-6"
       >
-        <h2 className="section-title text-primary fade-in-up delay-1">
-          About Me
-        </h2>
-        
-        <div className="grid gap-6 mb-6">
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="info-card fade-in-up delay-2">
-              <div className="icon-wrapper">
-                🎓
+        <div className="grid gap-6 lg:grid-cols-2">
+          {/* Education card */}
+          <motion.div
+            variants={item}
+            className="rounded-2xl border border-violet-100 bg-white p-6 shadow-sm"
+          >
+            <h3 className="font-display text-lg font-bold text-slate-900">
+              Education
+            </h3>
+            <div className="mt-4 flex items-start justify-between gap-4">
+              <div>
+                <p className="font-semibold text-slate-800">
+                  B.N.M Institute of Technology
+                </p>
+                <p className="text-sm text-slate-500">
+                  Information Science and Engineering
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-primary mb-2">
-                Education
-              </h3>
-              <p className="text-secondary font-medium">
-                B.E. in Information Science and Engineering
-              </p>
-              <p className="text-secondary text-sm mt-1">
-                B.N.M Institute of Technology | CGPA: 9.06 (2022–2026)
-              </p>
+              <span className="whitespace-nowrap text-sm text-slate-400">
+                2022–2026
+              </span>
             </div>
-
-            <div className="info-card fade-in-up delay-3">
-              <div className="icon-wrapper">
-                ⚡
-              </div>
-              <h3 className="text-xl font-semibold text-primary mb-2">
-                Expertise
-              </h3>
-              <p className="text-secondary leading-relaxed">
-                Focused on real-world problem solving, I leverage AI/ML and IoT to design and deliver impactful solutions, with experience from professional internships and hackathons.
-              </p>
+            <div className="mt-3 flex items-center gap-2">
+              <span className="text-sm text-slate-500">CGPA:</span>
+              <span className="rounded-full bg-violet-50 px-2.5 py-0.5 text-sm font-semibold text-violet-700">
+                9.06
+              </span>
             </div>
-          </div>
-        </div>
+            <div className="mt-6 rounded-xl border border-violet-100 bg-violet-50/50 p-4 text-sm italic text-slate-500">
+              "Focused on real-world problem solving, leveraging AI/ML and
+              IoT to design and deliver impactful solutions — shaped by
+              professional internships and hackathon experience."
+            </div>
+          </motion.div>
 
-        <div className="info-card fade-in-up delay-3">
-          <h3 className="text-xl font-semibold text-primary mb-4">
-            Core Skills
-          </h3>
-          <div className="flex flex-wrap">
-            <span className="skill-badge">AI/ML</span>
-            <span className="skill-badge">IoT Systems</span>
-            <span className="skill-badge">RPA</span>
-            <span className="skill-badge">Software Engineering</span>
-            <span className="skill-badge">Problem Solving</span>
-            <span className="skill-badge">Innovation</span>
-          </div>
+          {/* Technical interests grid */}
+          <motion.div variants={item}>
+            <h3 className="font-display mb-4 text-lg font-bold text-slate-900">
+              Technical Interests
+            </h3>
+            <div className="grid grid-cols-2 gap-3">
+              {interests.map(({ icon: Icon, label }) => (
+                <motion.div
+                  key={label}
+                  whileHover={{ y: -3 }}
+                  transition={{ duration: 0.2 }}
+                  className="flex flex-col items-center justify-center gap-2 rounded-xl border border-violet-100 bg-white px-3 py-5 text-center shadow-sm"
+                >
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-violet-50">
+                    <Icon className="h-5 w-5 text-violet-600" strokeWidth={1.75} />
+                  </span>
+                  <span className="text-sm font-medium text-slate-700">
+                    {label}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
-      </section>
-    </>
+      </motion.div>
+    </section>
   );
 };

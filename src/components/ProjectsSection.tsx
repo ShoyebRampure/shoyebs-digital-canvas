@@ -1,205 +1,183 @@
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Rocket, Code2, Cpu } from 'lucide-react';
+
 interface Project {
   title: string;
   tech: string;
   desc: string;
+  category: 'software' | 'hardware';
 }
 
 const projects: Project[] = [
   {
-    title: "Thera Bot",
-    tech: "Python, Computer Vision, NLP, Arduino, Machine Learning",
-    desc: "A mini bot robot which detects emotions and is helpful for  children, adults, and old",
+    title: 'Thera Bot',
+    tech: 'Python, Computer Vision, NLP, Arduino, Machine Learning',
+    desc: 'A mini bot that detects emotions and offers support for children, adults, and the elderly.',
+    category: 'hardware',
   },
   {
-    title: "DOT – The AI Powered Braille",
-    tech: "JavaScript, HTML, CSS, Lama AI, Arduino, MySQL",
-    desc: "Web + hardware tool for real-time Braille learning",
+    title: 'DOT – The AI Powered Braille',
+    tech: 'JavaScript, HTML, CSS, Lama AI, Arduino, MySQL',
+    desc: 'Web + hardware tool for real-time Braille learning.',
+    category: 'hardware',
   },
   {
-    title: "Smart Helmet",
-    tech: "GPS, Gyroscope, IoT, Bluetooth",
-    desc: "Safety system with accident detection, GPS, audio comms",
+    title: 'Smart Helmet',
+    tech: 'GPS, Gyroscope, IoT, Bluetooth',
+    desc: 'Safety system with accident detection, GPS tracking, and audio communication.',
+    category: 'hardware',
   },
   {
-    title: "Healthcare Chatbot",
-    tech: "Python, ML, Flask, NLP",
-    desc: "AI chatbot for disease prediction and suggestions",
+    title: 'Healthcare Chatbot',
+    tech: 'Python, ML, Flask, NLP',
+    desc: 'AI chatbot for disease prediction and treatment suggestions.',
+    category: 'software',
   },
   {
-    title: "Smart Calorie Detection System",
-    tech: "IoT, Python, Load Sensor",
-    desc: "Food weight-to-calorie calculation system",
+    title: 'Smart Calorie Detection System',
+    tech: 'IoT, Python, Load Sensor',
+    desc: 'Converts measured food weight into calorie estimates in real time.',
+    category: 'hardware',
   },
   {
-    title: "RPA Automation System",
-    tech: "Python, UiPath",
-    desc: "Converts Word to PDF & emails automatically",
+    title: 'RPA Automation System',
+    tech: 'Python, UiPath',
+    desc: 'Converts Word documents to PDF and emails them automatically.',
+    category: 'software',
   },
 ];
 
+const filters = [
+  { key: 'all', label: 'All Projects' },
+  { key: 'software', label: 'Software Projects' },
+  { key: 'hardware', label: 'Hardware Projects' },
+] as const;
+
+const container = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.08 } },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 },
+  },
+};
+
 export function ProjectsSection() {
+  const [active, setActive] = useState<(typeof filters)[number]['key']>('all');
+
+  const visible = projects.filter((p) =>
+    active === 'all' ? true : p.category === active
+  );
+
   return (
-    <>
-      <style>
-        {`
-          @import url('https://fonts.googleapis.com/css2?family=Cambria:wght@400;700&display=swap');
-
-          * {
-            font-family: 'Cambria', serif;
-          }
-
-          .projects-container {
-            background: #fafafa;
-            min-height: 100vh;
-            padding: 4rem 0;
-          }
-
-          .section-header {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            text-align: center;
-            margin-bottom: 3rem;
-            letter-spacing: -0.025em;
-            position: relative;
-          }
-
-          .section-header::after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 2px;
-          }
-
-          .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-          }
-
-          .project-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid #e5e7eb;
-            position: relative;
-            overflow: hidden;
-          }
-
-          .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-          }
-
-          .project-card:hover::before {
-            transform: scaleX(1);
-          }
-
-          .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
-            border-color: #d1d5db;
-          }
-
-          .project-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-          }
-
-          .project-tech {
-            font-size: 0.9rem;
-            color: #6b7280;
-            margin-bottom: 1rem;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #f3f4f6;
-            font-weight: 500;
-            letter-spacing: 0.025em;
-          }
-
-          .project-desc {
-            color: #374151;
-            font-size: 1rem;
-            line-height: 1.6;
-            font-weight: 400;
-          }
-
-          .tech-highlight {
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-          }
-
-          @media (max-width: 768px) {
-            .projects-grid {
-              grid-template-columns: 1fr;
-              padding: 0 1rem;
-            }
-            
-            .project-card {
-              padding: 1.5rem;
-            }
-            
-            .section-header {
-              font-size: 2rem;
-              margin-bottom: 2rem;
-            }
-            
-            .projects-container {
-              padding: 2rem 0;
-            }
-          }
-
-          @media (max-width: 480px) {
-            .projects-grid {
-              gap: 1.5rem;
-            }
-            
-            .project-title {
-              font-size: 1.25rem;
-            }
-            
-            .section-header {
-              font-size: 1.75rem;
-            }
-          }
-        `}
-      </style>
-
-      <section className="projects-container">
-        <div className="w-full max-w-7xl mx-auto">
-          <h2 className="section-header">Featured Projects</h2>
-          <div className="projects-grid">
-            {projects.map((proj, index) => (
-              <div key={proj.title} className="project-card">
-                <div className="project-title">{proj.title}</div>
-                <div className="project-tech tech-highlight">{proj.tech}</div>
-                <div className="project-desc">{proj.desc}</div>
-              </div>
-            ))}
+    <section id="projects" className="font-body w-full bg-transparent">
+      {/* Chapter banner */}
+      <div className="relative overflow-hidden bg-gradient-to-r from-violet-500 to-fuchsia-500 py-16">
+        <div className="mx-auto flex max-w-[1400px] flex-col items-center gap-6 px-4 text-center sm:flex-row sm:text-left">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            animate={{ y: [0, -8, 0] }}
+            transition={{
+              y: { duration: 4, repeat: Infinity },
+              default: { duration: 0.6 },
+            }}
+            className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm"
+          >
+            <Rocket className="h-9 w-9 text-white" strokeWidth={1.5} />
+          </motion.div>
+          <div>
+            <span className="text-sm font-semibold uppercase tracking-wide text-violet-100">
+              Chapter 2
+            </span>
+            <h2 className="font-display mt-1 text-4xl font-extrabold text-white sm:text-5xl">
+              My Projects
+            </h2>
+            <p className="mt-1 text-violet-100">
+              Innovative solutions using AI, ML, IoT &amp; embedded systems
+            </p>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+
+      {/* Content */}
+      <div className="mx-auto max-w-[1400px] px-4 py-16 sm:px-6">
+        {/* Filter pills */}
+        <div className="mb-10 flex flex-wrap justify-center gap-2">
+          {filters.map((f) => (
+            <button
+              key={f.key}
+              onClick={() => setActive(f.key)}
+              className={`h-10 rounded-full px-5 text-sm font-semibold transition-colors ${
+                active === f.key
+                  ? 'bg-violet-600 text-white shadow-sm'
+                  : 'border border-violet-100 bg-white text-slate-600 hover:border-violet-300 hover:text-violet-700'
+              }`}
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Project grid */}
+        <motion.div
+          key={active}
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="grid gap-6 sm:grid-cols-2"
+        >
+          <AnimatePresence mode="popLayout">
+            {visible.map((proj) => (
+              <motion.div
+                key={proj.title}
+                variants={item}
+                layout
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.2 }}
+                className="group relative overflow-hidden rounded-2xl border border-violet-100 bg-white p-6 shadow-sm"
+              >
+                <span className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-violet-500 to-fuchsia-500 transition-transform duration-300 group-hover:scale-x-100" />
+
+                <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-violet-50 px-3 py-1 text-xs font-semibold text-violet-700">
+                  {proj.category === 'software' ? (
+                    <Code2 className="h-3.5 w-3.5" strokeWidth={1.75} />
+                  ) : (
+                    <Cpu className="h-3.5 w-3.5" strokeWidth={1.75} />
+                  )}
+                  {proj.category === 'software' ? 'Software' : 'Hardware'}
+                </span>
+
+                <h3 className="font-display text-lg font-bold text-slate-900">
+                  {proj.title}
+                </h3>
+
+                <div className="mt-3 flex flex-wrap gap-1.5">
+                  {proj.tech.split(',').map((t) => (
+                    <span
+                      key={t}
+                      className="rounded-full bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-500"
+                    >
+                      {t.trim()}
+                    </span>
+                  ))}
+                </div>
+
+                <p className="mt-4 text-sm leading-relaxed text-slate-500">
+                  {proj.desc}
+                </p>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      </div>
+    </section>
   );
 }

@@ -1,311 +1,156 @@
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Layers, Code2, Cpu, BookOpen, Wrench, LucideIcon } from 'lucide-react';
+
+interface SkillCategory {
+  key: string;
+  label: string;
+  icon: LucideIcon;
+  items: string[];
+}
+
+const categories: SkillCategory[] = [
+  {
+    key: 'languages',
+    label: 'Languages & Frameworks',
+    icon: Code2,
+    items: [
+      'Java',
+      'C',
+      'Python',
+      'Django',
+      'Flask',
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'React',
+      'SQL',
+    ],
+  },
+  {
+    key: 'areas',
+    label: 'Technical Areas',
+    icon: Cpu,
+    items: ['AI / ML', 'RPA', 'Web Dev', 'IoT'],
+  },
+  {
+    key: 'courses',
+    label: 'Core Courses',
+    icon: BookOpen,
+    items: ['DSA', 'DBMS', 'OOPS', 'OS'],
+  },
+  {
+    key: 'tools',
+    label: 'Tools & Platforms',
+    icon: Wrench,
+    items: [
+      'AWS Foundation',
+      'Azure DevOps',
+      'Apache Kafka',
+      'Docker',
+      'Git',
+      'CI/CD (GitHub, Azure)',
+      'Oracle DB',
+      'MySQL',
+      'MongoDB',
+    ],
+  },
+];
+
+const grid = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.05 } },
+};
+
+const cell = {
+  hidden: { opacity: 0, y: 12 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.35 },
+  },
+};
+
 export function SkillsSection() {
-  return (
-    <>
-      <style>
-        {`
-          @import url('https://fonts.googleapis.com/css2?family=Cambria:wght@400;600;700&display=swap');
+  const [active, setActive] = useState(categories[0].key);
+  const current = categories.find((c) => c.key === active)!;
 
-          * {
-            font-family: 'Cambria', serif;
-          }
-
-          .skills-container {
-            background: #fafafa;
-            padding: 4rem 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-          }
-
-          .skills-content {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
-            border: 1px solid #e5e7eb;
-          }
-
-          .section-header {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            text-align: center;
-            margin-bottom: 3rem;
-            letter-spacing: -0.025em;
-            position: relative;
-          }
-
-          .section-header::after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 2px;
-          }
-
-          .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 2rem;
-          }
-
-          .skill-category-container {
-            background: #f8fafc;
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-          }
-
-          .skill-category-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-          }
-
-          .skill-category-container:hover::before {
-            transform: scaleX(1);
-          }
-
-          .skill-category-container:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            border-color: #cbd5e1;
-          }
-
-          .skill-category {
-            color: #1f2937;
-            font-weight: 700;
-            font-size: 1.25rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.025em;
-          }
-
-          .skills-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-          }
-
-          .skill-item {
-            color: #4b5563;
-            padding: 0.75rem 0;
-            position: relative;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid #f1f5f9;
-          }
-
-          .skill-item:last-child {
-            border-bottom: none;
-          }
-
-          .skill-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 6px;
-            height: 6px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 50%;
-            transition: all 0.3s ease;
-          }
-
-          .skill-item:hover::before {
-            transform: translateY(-50%) scale(1.3);
-            box-shadow: 0 0 8px rgba(102, 126, 234, 0.4);
-          }
-
-          .skill-item:hover {
-            color: #1f2937;
-            padding-left: 1.5rem;
-          }
-
-          .skill-item-text {
-            margin-left: 1.5rem;
-          }
-
-          @media (max-width: 768px) {
-            .skills-content {
-              padding: 2rem;
-              margin: 0 1rem;
-            }
-            
-            .skills-grid {
-              grid-template-columns: 1fr;
-              gap: 1.5rem;
-            }
-            
-            .section-header {
-              font-size: 2rem;
-              margin-bottom: 2rem;
-            }
-            
-            .skills-container {
-              padding: 2rem 0;
-            }
-            
-            .skill-category-container {
-              padding: 1.5rem;
-            }
-          }
-
-          @media (max-width: 480px) {
-            .skills-content {
-              padding: 1.5rem;
-            }
-            
-            .section-header {
-              font-size: 1.75rem;
-            }
-            
-            .skill-category {
-              font-size: 1.1rem;
-            }
-          }
-        `}
-      </style>
-
-      <section className="skills-container">
-        <div className="skills-content">
-          <h2 className="section-header">Technical Skills</h2>
-          <div className="skills-grid">
-            
-            {/* --- UPDATED LANGUAGES BOX --- */}
-            <div className="skill-category-container">
-              <div className="skill-category">Languages & Frameworks</div>
-              <ul className="skills-list">
-                <li className="skill-item">
-                  <span className="skill-item-text">Java</span>
-                </li>
-                <li className="skill-item">
-                  <span className="skill-item-text">C</span>
-                </li>
-                <li className="skill-item">
-                  <span className="skill-item-text">Python</span>
-                </li>
-                <li className="skill-item"> {/* --- ADDED --- */}
-                  <span className="skill-item-text">Django</span>
-                </li>
-                <li className="skill-item"> {/* --- ADDED --- */}
-                  <span className="skill-item-text">Flask</span>
-                </li>
-                <li className="skill-item">
-                  <span className="skill-item-text">HTML</span>
-                </li>
-                <li className="skill-item">
-                  <span className="skill-item-text">CSS</span>
-                </li>
-                <li className="skill-item">
-                  <span className="skill-item-text">JavaScript</span>
-                </li>
-                <li className="skill-item"> {/* --- ADDED --- */}
-                  <span className="skill-item-text">React</span>
-                </li>
-                <li className="skill-item">
-                  <span className="skill-item-text">SQL</span>
-                </li>
-              </ul>
-            </div>
-            
-            {/* --- UPDATED TECHNICAL AREAS BOX --- */}
-            <div className="skill-category-container">
-              <div className="skill-category">Technical Areas</div>
-              <ul className="skills-list">
-                <li className="skill-item">
-                  <span className="skill-item-text">AI / ML</span>
-                </li>
-                <li className="skill-item">
-                  <span className="skill-item-text">RPA</span>
-                </li>
-                <li className="skill-item">
-                  <span className="skill-item-text">Web Dev</span>
-                </li>
-                <li className="skill-item">
-                  <span className="skill-item-text">IoT</span>
-                </li>
-              </ul>
-            </div>
-            
-            {/* --- CORE COURSES BOX (Unchanged) --- */}
-            <div className="skill-category-container">
-              <div className="skill-category">Core Courses</div>
-              <ul className="skills-list">
-                <li className="skill-item">
-                  <span className="skill-item-text">DSA</span>
-                </li>
-                <li className="skill-item">
-                  <span className="skill-item-text">DBMS</span>
-                </li>
-                <li className="skill-item">
-                  <span className="skill-item-text">OOPS</span>
-                </li>
-                <li className="skill-item">
-                  <span className="skill-item-text">OS</span>
-                </li>
-              </ul>
-            </div>
-            
-            {/* --- NEW BOX ADDED --- */}
-            <div className="skill-category-container">
-              <div className="skill-category">Tools, Databases & Platforms</div>
-              <ul className="skills-list">
-                <li className="skill-item">
-                  <span className="skill-item-text">AWS Foundation</span>
-                </li>
-                <li className="skill-item">
-                  <span className="skill-item-text">Azure DevOps</span>
-                </li>
-                <li className="skill-item">
-                  <span className="skill-item-text">Apache Kafka</span>
-                </li>
-                <li className="skill-item">
-                  <span className="skill-item-text">Docker</span>
-                </li>
-                <li className="skill-item">
-                  <span className="skill-item-text">Git</span>
-                </li>
-                <li className="skill-item">
-                  <span className="skill-item-text">CI/CD (GitHub, Azure)</span>
-                </li>
-                <li className="skill-item">
-                  <span className="skill-item-text">Oracle DB</span>
-                </li>
-                <li className="skill-item">
-                  <span className="skill-item-text">MySQL</span>
-                </li>
-                <li className="skill-item">
-                  <span className="skill-item-text">MongoDB</span>
-                </li>
-              </ul>
-            </div>
-            
+    return (
+      <section id="skills" className="font-body w-full bg-transparent">
+      {/* Chapter banner */}
+      <div className="relative overflow-hidden bg-gradient-to-r from-fuchsia-500 to-violet-500 py-16">
+        <div className="mx-auto flex max-w-[1400px] flex-col items-center gap-6 px-4 text-center sm:flex-row sm:text-left">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            animate={{ y: [0, -8, 0] }}
+            transition={{
+              y: { duration: 4, repeat: Infinity },
+              default: { duration: 0.6 },
+            }}
+            className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm"
+          >
+            <Layers className="h-9 w-9 text-white" strokeWidth={1.5} />
+          </motion.div>
+          <div>
+            <span className="text-sm font-semibold uppercase tracking-wide text-violet-100">
+              Chapter 3
+            </span>
+            <h2 className="font-display mt-1 text-4xl font-extrabold text-white sm:text-5xl">
+              Skills &amp; Experience
+            </h2>
+            <p className="mt-1 text-violet-100">
+              Technical skills, certifications &amp; hands-on experience
+            </p>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+
+      {/* Content */}
+        <div className="mx-auto max-w-[1400px] px-4 py-16 sm:px-6">
+        {/* Tab bar */}
+        <div className="mb-8 flex flex-wrap justify-center gap-2 rounded-2xl border border-violet-100 bg-violet-50/40 p-2">
+          {categories.map((c) => (
+            <button
+              key={c.key}
+              onClick={() => setActive(c.key)}
+              className={`flex h-10 items-center gap-1.5 rounded-xl px-4 text-sm font-semibold transition-colors ${
+                active === c.key
+                  ? 'bg-white text-violet-700 shadow-sm'
+                  : 'text-slate-500 hover:text-violet-600'
+              }`}
+            >
+              <c.icon className="h-4 w-4" strokeWidth={1.75} />
+              {c.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Skill pill grid */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active}
+            variants={grid}
+            initial="hidden"
+            animate="show"
+            exit={{ opacity: 0 }}
+            className="grid grid-cols-1 gap-3 rounded-2xl border border-violet-100 bg-white p-6 shadow-sm sm:grid-cols-3"
+          >
+            {current.items.map((skill) => (
+              <motion.div
+                key={skill}
+                variants={cell}
+                whileHover={{ y: -2 }}
+                transition={{ duration: 0.15 }}
+                className="flex items-center justify-center rounded-xl border border-violet-100 bg-violet-50/30 px-4 py-3 text-center text-sm font-semibold text-slate-700"
+              >
+                {skill}
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+        </div>
+    </section>
   );
 }
